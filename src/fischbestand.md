@@ -13,7 +13,7 @@ beschreibung: "Fischarten, Seegröße und Besonderheiten des Angelsees Heiligens
 <div class="container inhaltsseite">
 <div class="inhalt">
 
-![[PLATZHALTER-BILD] Fischbestand im Angelsee Heiligenstedten](/assets/img/fischbestand-hero.svg)
+![Angelruten am Ufer im Morgennebel über dem Angelsee Heiligenstedten](/assets/img/Nebel.jpg)
 
 ## Seegröße
 

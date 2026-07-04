@@ -1,8 +1,8 @@
 {% from "icons.njk" import facebook_icon, instagram_icon, star_icon %}
 {% set seiten_beschreibung = beschreibung or (betrieb.name + ' - ' + betrieb.adresse.ort) %}
 {% set seiten_url = betrieb.url + page.url %}
-{# Vorschaubild für Google/Facebook/WhatsApp - sobald ein echtes Hero-Foto (JPG/PNG) vorliegt, hier eintragen #}
-{% set vorschau_bild = betrieb.url + "/assets/img/hero-see.svg" %}
+{# Vorschaubild für Google/Facebook/WhatsApp #}
+{% set vorschau_bild = betrieb.url + "/assets/img/Boot.jpg" %}
 <!DOCTYPE html>
 <html lang="de">
 <head>

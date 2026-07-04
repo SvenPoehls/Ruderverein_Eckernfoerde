@@ -13,7 +13,7 @@ beschreibung: "Lage, Größe und Besonderheiten des Angelsees Heiligenstedten."
 <div class="container inhaltsseite">
 <div class="inhalt">
 
-![[PLATZHALTER-BILD] Der Angelsee Heiligenstedten aus der Vogelperspektive](/assets/img/ueber-uns-see.svg)
+![Blick über den Angelsee Heiligenstedten im Sommer mit Schilf und Angelhütte](/assets/img/1.jpg)
 
 ## Der Angelsee Heiligenstedten
 
