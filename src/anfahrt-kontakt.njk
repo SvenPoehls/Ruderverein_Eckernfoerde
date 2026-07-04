@@ -2,6 +2,7 @@
 layout: layout.njk
 title: Anfahrt & Kontakt
 beschreibung: "Wegbeschreibung, Karte und Kontaktdaten für den Angelsee Heiligenstedten."
+zusatzScript: /assets/js/karte.js
 ---
 
 {% from "icons.njk" import facebook_icon, instagram_icon, star_icon %}
@@ -37,13 +38,15 @@ beschreibung: "Wegbeschreibung, Karte und Kontaktdaten für den Angelsee Heilige
         <li><strong>Bewertungen:</strong> <a class="social-link" href="{{ betrieb.googleBewertungenLink }}" target="_blank" rel="noopener">{{ star_icon() }} Google-Bewertungen</a></li>
       </ul>
 
-      <div class="karte-einbettung">
-        <iframe
-          src="https://www.google.com/maps?q={{ betrieb.adresse.ganzeAdresse | urlencode }}&output=embed"
-          title="Standort des {{ betrieb.name }} auf Google Maps"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div
+        class="karte-einbettung"
+        id="karte-einbettung"
+        data-karte-src="https://www.google.com/maps?q={{ betrieb.adresse.ganzeAdresse | urlencode }}&output=embed"
+        data-karte-titel="Standort des {{ betrieb.name }} auf Google Maps">
+        <div class="karte-platzhalter">
+          <p>Aus Datenschutzgründen wird die Karte erst nach einem Klick geladen. Dabei wird eine Verbindung zu Google-Servern hergestellt (siehe <a href="/datenschutz/">Datenschutzerklärung</a>).</p>
+          <button type="button" class="knopf" id="karte-laden-knopf">Karte laden</button>
+        </div>
       </div>
     </div>
 

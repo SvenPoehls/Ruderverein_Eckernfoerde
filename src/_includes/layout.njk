@@ -26,28 +26,24 @@
   <meta name="twitter:description" content="{{ seiten_beschreibung }}">
   <meta name="twitter:image" content="{{ vorschau_bild }}">
 
-  <script type="application/ld+json">
-  {
+  {% set json_ld = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "{{ betrieb.name }}",
-    "image": "{{ vorschau_bild }}",
-    "url": "{{ betrieb.url }}",
-    "telephone": "{{ betrieb.kontakt.telefonLink }}",
-    "email": "{{ betrieb.kontakt.email }}",
+    "name": betrieb.name,
+    "image": vorschau_bild,
+    "url": betrieb.url,
+    "telephone": betrieb.kontakt.telefonLink,
+    "email": betrieb.kontakt.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "{{ betrieb.adresse.strasse }}",
-      "postalCode": "{{ betrieb.adresse.plz }}",
-      "addressLocality": "{{ betrieb.adresse.ort }}",
+      "streetAddress": betrieb.adresse.strasse,
+      "postalCode": betrieb.adresse.plz,
+      "addressLocality": betrieb.adresse.ort,
       "addressCountry": "DE"
     },
-    "sameAs": [
-      "{{ betrieb.facebook }}",
-      "{{ betrieb.instagram.link }}"
-    ]
-  }
-  </script>
+    "sameAs": [betrieb.facebook, betrieb.instagram.link]
+  } %}
+  <script type="application/ld+json">{{ json_ld | dump | safe }}</script>
 </head>
 <body>
   <a class="skip-link" href="#hauptinhalt">Zum Hauptinhalt springen</a>
@@ -102,10 +98,11 @@
       </div>
     </div>
     <div class="container site-footer__copyright">
-      <p>&copy; {{ betrieb.jahr }} {{ betrieb.name }}</p>
+      <p>&copy; {{ betrieb.jahr }} {{ betrieb.name }} · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
     </div>
   </footer>
 
   <script src="/assets/js/nav.js"></script>
+  {% if zusatzScript %}<script src="{{ zusatzScript }}"></script>{% endif %}
 </body>
 </html>

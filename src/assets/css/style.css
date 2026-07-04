@@ -453,6 +453,24 @@ h1, h2, h3 {
   box-shadow: var(--schatten);
 }
 
+.karte-platzhalter {
+  height: 350px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  background: var(--farbe-gruen-hell);
+}
+
+.karte-platzhalter p {
+  margin: 0;
+  color: var(--farbe-text-hell);
+  max-width: 40ch;
+}
+
 .karte-einbettung iframe {
   width: 100%;
   height: 350px;
