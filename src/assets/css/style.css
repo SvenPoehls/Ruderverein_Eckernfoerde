@@ -289,10 +289,6 @@ h1, h2, h3 {
   padding: 3.5rem 0;
 }
 
-.abschnitt--hell {
-  background: var(--farbe-weiss);
-}
-
 .abschnitt--gruen {
   background: var(--farbe-gruen-hell);
 }
@@ -300,24 +296,6 @@ h1, h2, h3 {
 .abschnitt__titel {
   text-align: center;
   margin-bottom: 2rem;
-}
-
-.karten-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.karte {
-  background: var(--farbe-weiss);
-  border: 1px solid var(--farbe-rand);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: var(--schatten);
-}
-
-.karte h3 {
-  margin-top: 0;
 }
 
 .seiten-links-grid {

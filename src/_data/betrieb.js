@@ -50,21 +50,11 @@ module.exports = {
   // Link zur Facebook-Seite
   facebook: "https://www.facebook.com/people/Angelsee-Heiligenstedten/100068608867324/",
 
-  // Größe der Wasserfläche - wird auf Startseite und Fischbestand-Seite verwendet
+  // Größe der Wasserfläche - wird auf der Fischbestand-Seite verwendet
   seeGroesse: "3,4 Hektar",
 
-  // Anzahl der Angelplätze - wird auf Startseite und Fischbestand-Seite verwendet
+  // Anzahl der Angelplätze - wird auf der Fischbestand-Seite verwendet
   angelplaetze: "ca. 40",
-
-  // Kurzinfos, die auf der Startseite als "Auf einen Blick"-Kästchen erscheinen
-  get kurzinfos() {
-    return [
-      { titel: "Wasserfläche", text: this.seeGroesse + " großer Angelsee" },
-      { titel: "Angelplätze", text: this.angelplaetze + " Angelplätze rund um den See" },
-      { titel: "Kiosk", text: "Speisen, Getränke, Angelzubehör und Köder" },
-      { titel: "Fischverkauf", text: "Frischer und geräucherter Fisch direkt vom See" },
-    ];
-  },
 
   // Jahreszahl für die Copyright-Zeile im Footer (wird automatisch aktuell gehalten,
   // hier musst du nichts von Hand nachtragen)

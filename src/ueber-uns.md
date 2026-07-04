@@ -1,7 +1,7 @@
 ---
 layout: layout.njk
 title: Über uns
-beschreibung: "Lernen Sie Olaf Brorsen und die Geschichte des Angelsees Heiligenstedten kennen."
+beschreibung: "Lage, Größe und Besonderheiten des Angelsees Heiligenstedten."
 ---
 
 <div class="inhaltsseite__kopf">
@@ -13,17 +13,17 @@ beschreibung: "Lernen Sie Olaf Brorsen und die Geschichte des Angelsees Heiligen
 <div class="container inhaltsseite">
 <div class="inhalt">
 
-![[PLATZHALTER-BILD] Olaf Brorsen am Angelsee Heiligenstedten](/assets/img/ueber-uns-inhaber.svg)
+![[PLATZHALTER-BILD] Der Angelsee Heiligenstedten aus der Vogelperspektive](/assets/img/ueber-uns-see.svg)
 
-## {{ betrieb.inhaber }}
+## Der Angelsee Heiligenstedten
 
-[ÜBER_UNS_TEXT: Hier eine persönliche Vorstellung von {{ betrieb.inhaber }} schreiben - zum Beispiel seit wann er den See betreibt, was ihm am Angeln und am See wichtig ist, und was Besucherinnen und Besucher hier erwartet.]
+Der Angelsee Heiligenstedten ist eine kommerziell betriebene Angelanlage am westlichen Ortsrand von Itzehoe (direkt neben der A23). Er besteht aus nur einem See, der sich von allen Seiten gut beangeln lässt. Insgesamt bietet er etwa 40 Angelplätze. Der See wird durch mehrere natürliche Quellen gespeist.
 
-## Die Geschichte des Sees
+## Geschichte des Sees
 
 ![[PLATZHALTER-BILD] Historische Ansicht des Angelsees](/assets/img/ueber-uns-see-frueher.svg)
 
-[GESCHICHTE_TEXT: Hier die Entstehungsgeschichte des Angelsees Heiligenstedten schreiben - zum Beispiel wann und wie der See entstanden ist, wichtige Entwicklungsschritte über die Jahre, und was den See heute besonders macht.]
+[GESCHICHTE_TEXT: Hier die Entstehungsgeschichte des Angelsees Heiligenstedten schreiben - zum Beispiel wann und wie der See entstanden ist und wichtige Entwicklungsschritte über die Jahre.]
 
 </div>
 </div>

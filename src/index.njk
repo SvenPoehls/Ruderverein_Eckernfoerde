@@ -16,27 +16,13 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
   </div>
 </section>
 
-<section class="abschnitt abschnitt--hell">
-  <div class="container">
-    <h2 class="abschnitt__titel">Auf einen Blick</h2>
-    <div class="karten-grid">
-      {% for info in betrieb.kurzinfos %}
-      <div class="karte">
-        <h3>{{ info.titel }}</h3>
-        <p>{{ info.text }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 <section class="abschnitt abschnitt--gruen">
   <div class="container">
     <h2 class="abschnitt__titel">Alles rund um den Angelsee</h2>
     <div class="seiten-links-grid">
       <a class="seiten-link-karte" href="/ueber-uns/">
         <h3>Über uns</h3>
-        <p>Lernen Sie {{ betrieb.inhaber }} und die Geschichte des Sees kennen.</p>
+        <p>Lage, Größe und Besonderheiten des Angelsees Heiligenstedten.</p>
       </a>
       <a class="seiten-link-karte" href="/fischbestand/">
         <h3>Fischbestand</h3>

@@ -21,13 +21,14 @@ Der {{ betrieb.name }} hat eine Wasserfläche von **{{ betrieb.seeGroesse }}** u
 
 ## Fischarten
 
-Im See finden sich unter anderem folgende Fischarten:
+Im See finden sich folgende Fischarten:
 
-- [FISCHARTEN: z. B. Karpfen]
-- [FISCHARTEN: z. B. Hecht]
-- [FISCHARTEN: z. B. Zander]
-- [FISCHARTEN: z. B. Schleie]
-- [FISCHARTEN: weitere Art hier ergänzen oder Zeile löschen]
+- Regenbogenforellen
+- Bachforellen
+- Saiblinge
+- Zander
+- Karpfen
+- Störe
 
 ## Besonderheiten
 
