@@ -137,6 +137,8 @@ Nach ein bis zwei Minuten ist die Seite unter einer Adresse wie `https://dein-na
 
 **Ab jetzt:** Jede Änderung, die du wie in Abschnitt 2 beschrieben auf GitHub speicherst, erscheint automatisch (nach ca. 1 Minute) auf der veröffentlichten Seite - ganz ohne weiteres Zutun.
 
+**Wichtig für Google & Co. (SEO):** Sobald die Seite unter ihrer endgültigen Adresse erreichbar ist (die Netlify-Adresse oder eine eigene Domain), trage diese in `src/_data/betrieb.js` beim Eintrag `url:` ein. Diese Adresse wird für die Sitemap, die `robots.txt`-Datei und die Vorschau beim Teilen auf Facebook/WhatsApp verwendet.
+
 ---
 
 ## 7. Kontaktformular
@@ -153,3 +155,4 @@ Die Seite ist mit **Eleventy** gebaut, einem sehr einfachen Werkzeug, das aus de
 - Adresse, Telefon & Co. stehen genau **einmal** zentral in `betrieb.js` und werden überall automatisch übernommen.
 - Kein Backend, keine Datenbank, kein Login-System, keine laufenden Kosten oder Sicherheitsupdates, um die sich jemand kümmern müsste.
 - Veröffentlichung läuft nach der Einrichtung vollautomatisch über Netlify.
+- Für eine gute Auffindbarkeit bei Google sind bereits Seitentitel, Beschreibungen, eine Sitemap (`/sitemap.xml`), eine `robots.txt` sowie strukturierte Daten (Adresse, Telefon, Öffnungszeiten für Suchmaschinen) eingebaut.

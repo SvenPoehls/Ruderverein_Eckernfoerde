@@ -8,7 +8,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
   <img class="hero__bild" src="/assets/img/hero-see.svg" alt="[PLATZHALTER-BILD] Weite Ansicht des Angelsees Heiligenstedten bei ruhigem Wetter">
   <div class="hero__inner">
     <h1>Willkommen am {{ betrieb.name }}</h1>
-    <p>[WILLKOMMENSTEXT: Hier eine kurze, einladende Begrüßung schreiben - z. B. was den See besonders macht und wen man hier trifft.]</p>
+    <p>Mitten in ruhiger Natur am Rand von Itzehoe liegt unser Angelsee - gespeist von natürlichen Quellen und umgeben von altem Baumbestand. Ob entspanntes Feierabendangeln oder ein ganzer Tag am Wasser: An unseren rund {{ betrieb.angelplaetze }} Angelplätzen findet jeder Petrijünger sein Plätzchen. Für die Pause zwischendurch sorgt unser Kiosk mit Snacks, Getränken und frischem Fisch direkt aus dem See.</p>
     <p>
       <a class="knopf" href="/preise/">Preise &amp; Angelkarten</a>
       <a class="knopf knopf--sekundaer" href="/anfahrt-kontakt/">Anfahrt &amp; Kontakt</a>
@@ -45,5 +45,19 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
         <p>Wegbeschreibung, Karte und alle Kontaktdaten.</p>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="abschnitt abschnitt--hell">
+  <div class="container">
+    <h2 class="abschnitt__titel">Impressionen vom Angelsee</h2>
+    <div class="galerie-grid">
+      {% for bild in galerie.slice(0, 4) %}
+      <figure>
+        <img src="{{ bild.datei }}" alt="{{ bild.alt }}" loading="lazy">
+      </figure>
+      {% endfor %}
+    </div>
+    <p class="abschnitt__cta"><a class="knopf" href="/galerie/">Alle Fotos ansehen</a></p>
   </div>
 </section>

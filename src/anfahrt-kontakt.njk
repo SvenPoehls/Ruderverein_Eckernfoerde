@@ -4,6 +4,8 @@ title: Anfahrt & Kontakt
 beschreibung: "Wegbeschreibung, Karte und Kontaktdaten für den Angelsee Heiligenstedten."
 ---
 
+{% from "icons.njk" import facebook_icon, instagram_icon, star_icon %}
+
 <div class="inhaltsseite__kopf">
 <div class="container">
 <h1>Anfahrt &amp; Kontakt</h1>
@@ -20,8 +22,19 @@ beschreibung: "Wegbeschreibung, Karte und Kontaktdaten für den Angelsee Heilige
         <li><strong>Adresse:</strong> {{ betrieb.adresse.strasse }}, {{ betrieb.adresse.plz }} {{ betrieb.adresse.ort }}</li>
         <li><strong>Telefon:</strong> <a href="tel:{{ betrieb.kontakt.telefonLink }}">{{ betrieb.kontakt.telefon }}</a></li>
         <li><strong>E-Mail:</strong> <a href="mailto:{{ betrieb.kontakt.email }}">{{ betrieb.kontakt.email }}</a></li>
-        <li><strong>Öffnungszeiten:</strong> {{ betrieb.oeffnungszeiten }}</li>
-        <li><strong>Facebook:</strong> <a href="{{ betrieb.facebook }}" target="_blank" rel="noopener">Angelsee Heiligenstedten auf Facebook</a></li>
+        <li>
+          <strong>Öffnungszeiten:</strong>
+          <ul class="oeffnungszeiten-liste">
+            {% for zeit in betrieb.oeffnungszeiten %}
+            <li>{{ zeit.zeitraum }}: {{ zeit.zeiten }}</li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li><strong>Social Media:</strong>
+          <a class="social-link" href="{{ betrieb.facebook }}" target="_blank" rel="noopener">{{ facebook_icon() }} Facebook</a>
+          <a class="social-link" href="{{ betrieb.instagram.link }}" target="_blank" rel="noopener">{{ instagram_icon() }} Instagram</a>
+        </li>
+        <li><strong>Bewertungen:</strong> <a class="social-link" href="{{ betrieb.googleBewertungenLink }}" target="_blank" rel="noopener">{{ star_icon() }} Google-Bewertungen</a></li>
       </ul>
 
       <div class="karte-einbettung">

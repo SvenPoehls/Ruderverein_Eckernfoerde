@@ -20,6 +20,14 @@
 // ============================================================================
 
 module.exports = {
+  // Web-Adresse der veröffentlichten Seite OHNE abschließenden Schrägstrich.
+  // Wird für Suchmaschinen (Canonical-Links, Sitemap, robots.txt) sowie für
+  // die Vorschau beim Teilen auf Facebook/WhatsApp/Twitter benötigt.
+  // WICHTIG: Sobald die Seite auf Netlify veröffentlicht ist (siehe README,
+  // Abschnitt "Seite veröffentlichen"), hier die echte Adresse eintragen -
+  // z. B. "https://angelsee-heiligenstedten.netlify.app" oder eine eigene Domain.
+  url: "https://www.angelsee-heiligenstedten.de",
+
   // Name des Angelsees, wie er im Titel und Header angezeigt wird
   name: "Angelsee Heiligenstedten",
 
@@ -43,12 +51,29 @@ module.exports = {
     email: "olaf.brorsen@gmx.de",
   },
 
-  // Öffnungszeiten - Platzhalter, bitte durch echte Zeiten ersetzen
-  // Beispiel: "Täglich 6:00 - 20:00 Uhr" oder mit mehreren Zeilen wie unten
-  oeffnungszeiten: "[ÖFFNUNGSZEITEN]",
+  // Öffnungszeiten nach Saison. Jede Zeile ist ein Zeitraum + die dazugehörige Zeit.
+  // Eine Zeile ändern: nur den Text zwischen den Anführungszeichen " " anpassen.
+  // Eine Zeile hinzufügen/entfernen: einen kompletten { zeitraum: ..., zeiten: ... }-Block
+  // kopieren/löschen (mit Komma).
+  oeffnungszeiten: [
+    { zeitraum: "April bis August", zeiten: "6:00 - 22:00 Uhr" },
+    { zeitraum: "März, September und Oktober", zeiten: "7:00 - 18:00 Uhr" },
+    { zeitraum: "November bis Februar", zeiten: "Nur Freitag, Samstag und Sonntag" },
+  ],
 
   // Link zur Facebook-Seite
   facebook: "https://www.facebook.com/people/Angelsee-Heiligenstedten/100068608867324/",
+
+  // Instagram-Nutzername und Link zum Profil
+  instagram: {
+    name: "@angelsee_heiligenstedten",
+    link: "https://www.instagram.com/angelsee_heiligenstedten/",
+  },
+
+  // Link zu den Google-Bewertungen. Öffnet die Google-Maps-Suche zum Angelsee,
+  // wo Besucher bestehende Bewertungen lesen und über "Rezension schreiben"
+  // selbst eine Bewertung abgeben können.
+  googleBewertungenLink: "https://www.google.com/maps/search/?api=1&query=Angelsee+Heiligenstedten+Waldweg+1+25524+Heiligenstedten",
 
   // Größe der Wasserfläche - wird auf der Fischbestand-Seite verwendet
   seeGroesse: "3,4 Hektar",

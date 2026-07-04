@@ -293,9 +293,19 @@ h1, h2, h3 {
   background: var(--farbe-gruen-hell);
 }
 
+.abschnitt--hell {
+  background: var(--farbe-weiss);
+}
+
 .abschnitt__titel {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.abschnitt__cta {
+  text-align: center;
+  margin-top: 1.75rem;
+  margin-bottom: 0;
 }
 
 .seiten-links-grid {
@@ -490,6 +500,29 @@ h1, h2, h3 {
 .info-liste li {
   padding: 0.4rem 0;
   border-bottom: 1px solid var(--farbe-rand);
+}
+
+.oeffnungszeiten-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+}
+
+.oeffnungszeiten-liste li {
+  padding: 0.15rem 0;
+  border: none;
+}
+
+/* --- Icons (Facebook, Instagram, Google-Bewertungen) ---------------------------- */
+.icon {
+  vertical-align: -0.3em;
+  flex-shrink: 0;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 /* --- Footer -------------------------------------------------------------------- */
