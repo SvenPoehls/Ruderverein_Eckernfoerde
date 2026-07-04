@@ -136,7 +136,8 @@ h1, h2, h3 {
   background: none;
   border: 2px solid var(--farbe-gruen-dunkel);
   border-radius: 6px;
-  padding: 0.5rem 0.65rem;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
 }
 
@@ -541,6 +542,8 @@ h1, h2, h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  padding: 0.5rem 0.1rem;
+  margin: -0.5rem 0.5rem -0.5rem 0;
 }
 
 /* --- Footer -------------------------------------------------------------------- */
