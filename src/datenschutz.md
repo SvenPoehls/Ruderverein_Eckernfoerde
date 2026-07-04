@@ -13,8 +13,6 @@ beschreibung: "Datenschutzerklärung des Angelsees Heiligenstedten gemäß DSGVO
 <div class="container inhaltsseite">
 <div class="inhalt">
 
-*Hinweis für {{ betrieb.inhaber }}: Dieser Text ist eine allgemeine Vorlage und ersetzt keine Rechtsberatung. Bitte vor der Veröffentlichung von einem Anwalt oder Datenschutzbeauftragten prüfen lassen.*
-
 ## Verantwortlicher
 
 Verantwortlich für die Datenverarbeitung auf dieser Website ist:
