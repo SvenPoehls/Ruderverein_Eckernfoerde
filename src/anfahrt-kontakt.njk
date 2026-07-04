@@ -1,0 +1,58 @@
+---
+layout: layout.njk
+title: Anfahrt & Kontakt
+beschreibung: "Wegbeschreibung, Karte und Kontaktdaten für den Angelsee Heiligenstedten."
+---
+
+<div class="inhaltsseite__kopf">
+<div class="container">
+<h1>Anfahrt &amp; Kontakt</h1>
+</div>
+</div>
+
+<div class="container inhaltsseite">
+  <div class="kontakt-grid">
+    <div>
+      <h2>Wegbeschreibung</h2>
+      <p>[ANFAHRT: Hier eine kurze Wegbeschreibung ergänzen, z. B. von welcher Autobahnausfahrt oder Ortschaft aus man am besten anfährt und ob es ausgeschilderte Parkplätze gibt.]</p>
+
+      <ul class="info-liste">
+        <li><strong>Adresse:</strong> {{ betrieb.adresse.strasse }}, {{ betrieb.adresse.plz }} {{ betrieb.adresse.ort }}</li>
+        <li><strong>Telefon:</strong> <a href="tel:{{ betrieb.kontakt.telefonLink }}">{{ betrieb.kontakt.telefon }}</a></li>
+        <li><strong>E-Mail:</strong> <a href="mailto:{{ betrieb.kontakt.email }}">{{ betrieb.kontakt.email }}</a></li>
+        <li><strong>Öffnungszeiten:</strong> {{ betrieb.oeffnungszeiten }}</li>
+        <li><strong>Facebook:</strong> <a href="{{ betrieb.facebook }}" target="_blank" rel="noopener">Angelsee Heiligenstedten auf Facebook</a></li>
+      </ul>
+
+      <div class="karte-einbettung">
+        <iframe
+          src="https://www.google.com/maps?q={{ betrieb.adresse.ganzeAdresse | urlencode }}&output=embed"
+          title="Standort des {{ betrieb.name }} auf Google Maps"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <div>
+      <h2>Kontaktformular</h2>
+      <p>Sie erreichen uns auch direkt per Telefon oder E-Mail (siehe links). Alternativ können Sie dieses Formular nutzen - es öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht.</p>
+
+      <form class="kontaktformular" action="mailto:{{ betrieb.kontakt.email }}" method="post" enctype="text/plain">
+        <div>
+          <label for="kf-name">Name</label>
+          <input type="text" id="kf-name" name="Name" required>
+        </div>
+        <div>
+          <label for="kf-email">Ihre E-Mail-Adresse</label>
+          <input type="email" id="kf-email" name="E-Mail" required>
+        </div>
+        <div>
+          <label for="kf-nachricht">Nachricht</label>
+          <textarea id="kf-nachricht" name="Nachricht" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="knopf">Nachricht senden</button>
+      </form>
+    </div>
+  </div>
+</div>

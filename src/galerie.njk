@@ -1,0 +1,24 @@
+---
+layout: layout.njk
+title: Galerie
+beschreibung: "Fangbilder und Eindrücke vom Angelsee Heiligenstedten."
+---
+
+<div class="inhaltsseite__kopf">
+<div class="container">
+<h1>Galerie</h1>
+</div>
+</div>
+
+<div class="container inhaltsseite">
+  <p class="inhalt">[GALERIE_TEXT: Hier einen kurzen Einleitungstext ergänzen, z. B. dass Gäste ihre Fangbilder gerne einsenden können.]</p>
+
+  <div class="galerie-grid">
+    {% for bild in galerie %}
+    <figure>
+      <img src="{{ bild.datei }}" alt="{{ bild.alt }}" loading="lazy">
+      <figcaption>{{ bild.bildtext }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</div>
