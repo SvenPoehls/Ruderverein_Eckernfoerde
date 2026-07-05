@@ -15,7 +15,7 @@ beschreibung: "Fangbilder und Eindrücke vom Angelsee Heiligenstedten."
 
   <div class="galerie-grid">
     {% for bild in galerie %}
-    <figure>
+    <figure class="reveal reveal--verzoegert-{{ (loop.index0 % 4) + 1 }}">
       <img src="{{ bild.datei }}" alt="{{ bild.alt }}" loading="lazy">
       <figcaption>{{ bild.bildtext }}</figcaption>
     </figure>

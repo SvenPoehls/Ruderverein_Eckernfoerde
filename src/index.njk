@@ -20,7 +20,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
   <div class="container">
     <h2 class="abschnitt__titel">Rund um den Angelsee</h2>
 
-    <div class="vorstellung">
+    <div class="vorstellung reveal">
       <div class="vorstellung__bild">
         <img src="/assets/img/1.jpg" alt="Blick über den Angelsee Heiligenstedten im Sommer mit Schilf und Angelhütte" loading="lazy">
       </div>
@@ -31,7 +31,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
       </div>
     </div>
 
-    <div class="vorstellung vorstellung--umgekehrt">
+    <div class="vorstellung vorstellung--umgekehrt reveal">
       <div class="vorstellung__bild">
         <img src="/assets/img/Nebel.jpg" alt="Angelruten am Ufer im Morgennebel über dem Angelsee Heiligenstedten" loading="lazy">
       </div>
@@ -42,7 +42,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
       </div>
     </div>
 
-    <div class="vorstellung">
+    <div class="vorstellung reveal">
       <div class="vorstellung__bild">
         <img src="/assets/img/winter.jpg" alt="Zugefrorener Angelsee Heiligenstedten mit Schnee bei Sonnenuntergang im Winter" loading="lazy">
       </div>
@@ -53,7 +53,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
       </div>
     </div>
 
-    <div class="vorstellung vorstellung--umgekehrt">
+    <div class="vorstellung vorstellung--umgekehrt reveal">
       <div class="vorstellung__bild">
         <img src="/assets/img/Sonnenuntergang.jpg" alt="Sitzplatz am Ufer bei Sonnenaufgang über dem Angelsee Heiligenstedten" loading="lazy">
       </div>
@@ -64,7 +64,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
       </div>
     </div>
 
-    <div class="cta-band">
+    <div class="cta-band reveal">
       <h3>Bereit für den nächsten Angeltag?</h3>
       <p>Wegbeschreibung, Öffnungszeiten und alle Kontaktdaten finden Sie auf einen Blick auf der Anfahrt- &amp; Kontaktseite.</p>
       <p>
@@ -79,7 +79,7 @@ beschreibung: "Angelsee Heiligenstedten - 3,4 Hektar Wasserfläche, ca. 40 Angel
     <h2 class="abschnitt__titel">Impressionen vom Angelsee</h2>
     <div class="galerie-grid">
       {% for bild in galerie.slice(0, 4) %}
-      <figure>
+      <figure class="reveal reveal--verzoegert-{{ loop.index }}">
         <img src="{{ bild.datei }}" alt="{{ bild.alt }}" loading="lazy">
       </figure>
       {% endfor %}
