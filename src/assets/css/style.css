@@ -456,10 +456,31 @@ h1, h2, h3 {
   padding-left: 1.4rem;
 }
 
-.platzhalter-bild {
+/* --- Bild-Text-Layout auf Inhaltsseiten (Über uns, Fischbestand) ------------ */
+.inhalt-bild-text {
+  display: grid;
+  grid-template-columns: minmax(240px, 380px) 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 950px;
+}
+
+.inhalt-bild-text__bild img {
+  width: 100%;
   border-radius: var(--radius);
-  margin: 1.5rem 0;
-  border: 1px solid var(--farbe-rand);
+  box-shadow: var(--schatten);
+  display: block;
+}
+
+.inhalt-bild-text__text > *:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .inhalt-bild-text {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* --- Tabellen (Preise) ------------------------------------------------------ */

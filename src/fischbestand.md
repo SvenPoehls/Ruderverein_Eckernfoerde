@@ -11,9 +11,13 @@ beschreibung: "Fischarten, Seegröße und Besonderheiten des Angelsees Heiligens
 </div>
 
 <div class="container inhaltsseite">
-<div class="inhalt">
+<div class="inhalt-bild-text reveal">
+<div class="inhalt-bild-text__bild">
 
 ![Angelruten am Ufer im Morgennebel über dem Angelsee Heiligenstedten](/assets/img/Nebel.jpg)
+
+</div>
+<div class="inhalt-bild-text__text">
 
 ## Seegröße
 
@@ -34,5 +38,6 @@ Im See finden sich folgende Fischarten:
 
 [BESONDERHEITEN_TEXT: Hier besondere Merkmale des Fischbestands beschreiben - zum Beispiel außergewöhnlich große Exemplare, Besatzmaßnahmen oder Lebensraumbesonderheiten des Sees.]
 
+</div>
 </div>
 </div>
