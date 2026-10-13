@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin-Bereich | Ruderclub Eckernförde</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a1a30">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+  <a class="skip-link" href="#admin-main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Zur Webseite">
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#2a6acd"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a1a30" opacity=".9"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#f5c400"/>
+        </svg>
+        <span class="brand__text">Ruderclub Eckernförde<small>Admin-Bereich</small></span>
+      </a>
+      <div class="admin-userbar" id="userbar" hidden>
+        <span>Angemeldet als <strong id="me-name"></strong></span>
+        <a class="btn btn--ghost btn--sm" href="../index.html">Zur Webseite</a>
+        <button class="btn btn--accent btn--sm" type="button" id="logout">Abmelden</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="admin-main" class="admin-main">
+
+    <!-- ================= LOGIN ================= -->
+    <section class="container admin-login" id="view-login" hidden aria-labelledby="login-title">
+      <form class="form" id="login-form" novalidate>
+        <span class="eyebrow">Admin-Bereich</span>
+        <h1 id="login-title">Anmelden</h1>
+        <div class="form-row">
+          <label for="login-user">Benutzername</label>
+          <input id="login-user" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        </div>
+        <div class="form-row">
+          <label for="login-pass">Passwort</label>
+          <input id="login-pass" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn--accent" type="submit">Anmelden</button>
+        <p class="admin-msg" role="alert" aria-live="assertive"></p>
+      </form>
+      <p class="admin-hint" id="api-missing" hidden>
+        Der Admin-Bereich benötigt den Server-Teil (Netlify Functions). Lokal bitte mit
+        <code>npm start</code> starten und <code>http://localhost:8888/admin/</code> öffnen.
+      </p>
+    </section>
+
+    <!-- ================= ADMIN-OBERFLÄCHE ================= -->
+    <section class="container" id="view-app" hidden>
+      <div class="notice" id="test-warning" hidden>
+        <p><strong>Testzugang aktiv:</strong> Der Zugang <code>test</code> / <code>test</code> ist für alle bekannt.
+          Bitte unter „Admins“ ein eigenes Konto anlegen, damit anmelden und den Testzugang löschen.</p>
+      </div>
+
+      <h1 class="admin-title">Inhalte verwalten</h1>
+
+      <div class="admin-tabs" role="tablist" aria-label="Bereiche">
+        <button role="tab" type="button" id="tab-news" aria-controls="panel-news" aria-selected="true">Neuigkeiten</button>
+        <button role="tab" type="button" id="tab-gallery" aria-controls="panel-gallery" aria-selected="false" tabindex="-1">Galerie</button>
+        <button role="tab" type="button" id="tab-users" aria-controls="panel-users" aria-selected="false" tabindex="-1">Admins</button>
+        <button role="tab" type="button" id="tab-account" aria-controls="panel-account" aria-selected="false" tabindex="-1">Mein Konto</button>
+      </div>
+
+      <!-- ---------- Neuigkeiten ---------- -->
+      <div class="admin-panel" role="tabpanel" id="panel-news" aria-labelledby="tab-news">
+        <div class="admin-panel__head">
+          <h2>Neuigkeiten</h2>
+          <button class="btn btn--accent" type="button" id="news-new">+ Neuer Beitrag</button>
+        </div>
+        <p class="admin-hint" id="news-sample-hint" hidden>Auf der Webseite werden noch die Beispielbeiträge angezeigt. Sobald du hier den ersten Beitrag speicherst, ersetzt er die Beispiele.</p>
+
+        <form class="form admin-editor" id="news-form" hidden novalidate>
+          <h3 id="news-form-title">Neuer Beitrag</h3>
+          <div class="form-row">
+            <label for="n-titel">Titel <span class="req" aria-hidden="true">*</span></label>
+            <input id="n-titel" name="titel" maxlength="160" required>
+          </div>
+          <div class="form-row--2">
+            <div class="form-row">
+              <label for="n-datum">Datum <span class="req" aria-hidden="true">*</span></label>
+              <input id="n-datum" name="datum" type="date" required>
+            </div>
+            <div class="form-row">
+              <label for="n-kategorie">Kategorie</label>
+              <input id="n-kategorie" name="kategorie" list="kategorien" maxlength="40" placeholder="z. B. Verein, Regatta, Jugend">
+              <datalist id="kategorien"></datalist>
+            </div>
+          </div>
+          <div class="form-row mt-2">
+            <label for="n-teaser">Kurztext <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="n-teaser" name="teaser" maxlength="400" rows="3" required></textarea>
+            <p class="form-hint">1–2 Sätze, immer sichtbar.</p>
+          </div>
+          <div class="form-row">
+            <label for="n-text">Ausführlicher Text (optional)</label>
+            <textarea id="n-text" name="text" rows="8" maxlength="10000"></textarea>
+            <p class="form-hint">Erscheint bei „Weiterlesen“. Leerzeile = neuer Absatz.</p>
+          </div>
+          <fieldset class="admin-image">
+            <legend>Bild (optional)</legend>
+            <div class="admin-image__preview" data-preview></div>
+            <input type="hidden" name="bild">
+            <div class="btn-row">
+              <label class="btn btn--outline btn--sm admin-file">Bild auswählen
+                <input type="file" accept="image/jpeg,image/png,image/webp" data-upload="bild">
+              </label>
+              <button class="btn btn--ghost btn--sm" type="button" data-remove-image="bild" hidden>Bild entfernen</button>
+            </div>
+            <div class="form-row mt-2">
+              <label for="n-bildAlt">Bildbeschreibung (für Screenreader)</label>
+              <input id="n-bildAlt" name="bildAlt" maxlength="200" placeholder="z. B. Vierer bei der Regatta in Kiel">
+            </div>
+          </fieldset>
+          <div class="btn-row">
+            <button class="btn btn--accent" type="submit">Speichern &amp; veröffentlichen</button>
+            <button class="btn btn--ghost" type="button" data-cancel>Abbrechen</button>
+          </div>
+          <p class="admin-msg" role="alert" aria-live="assertive"></p>
+        </form>
+
+        <ul class="admin-list" id="news-list" aria-live="polite"></ul>
+      </div>
+
+      <!-- ---------- Galerie ---------- -->
+      <div class="admin-panel" role="tabpanel" id="panel-gallery" aria-labelledby="tab-gallery" hidden>
+        <div class="admin-panel__head">
+          <h2>Galerie</h2>
+          <button class="btn btn--accent" type="button" id="gallery-new">+ Bild hinzufügen</button>
+        </div>
+        <p class="admin-hint" id="gallery-sample-hint" hidden>Auf der Webseite werden noch Platzhalterbilder angezeigt. Sobald du hier das erste Bild speicherst, ersetzt es die Platzhalter.</p>
+
+        <form class="form admin-editor" id="gallery-form" hidden novalidate>
+          <h3 id="gallery-form-title">Bild hinzufügen</h3>
+          <fieldset class="admin-image">
+            <legend>Bild <span class="req" aria-hidden="true">*</span></legend>
+            <div class="admin-image__preview" data-preview></div>
+            <input type="hidden" name="datei">
+            <label class="btn btn--outline btn--sm admin-file">Bild auswählen
+              <input type="file" accept="image/jpeg,image/png,image/webp" data-upload="datei">
+            </label>
+          </fieldset>
+          <div class="form-row">
+            <label for="g-alt">Bildbeschreibung <span class="req" aria-hidden="true">*</span></label>
+            <input id="g-alt" name="alt" maxlength="200" required placeholder="z. B. Achter auf der Eckernförder Bucht">
+          </div>
+          <div class="form-row--2">
+            <div class="form-row">
+              <label for="g-caption">Bildunterschrift</label>
+              <input id="g-caption" name="bildunterschrift" maxlength="200">
+            </div>
+            <div class="form-row">
+              <label for="g-album">Album</label>
+              <input id="g-album" name="album" list="alben" maxlength="40" placeholder="z. B. Training, Regatta">
+              <datalist id="alben"></datalist>
+            </div>
+          </div>
+          <div class="btn-row mt-2">
+            <button class="btn btn--accent" type="submit">Speichern &amp; veröffentlichen</button>
+            <button class="btn btn--ghost" type="button" data-cancel>Abbrechen</button>
+          </div>
+          <p class="admin-msg" role="alert" aria-live="assertive"></p>
+        </form>
+
+        <ul class="admin-grid" id="gallery-list" aria-live="polite"></ul>
+      </div>
+
+      <!-- ---------- Admins ---------- -->
+      <div class="admin-panel" role="tabpanel" id="panel-users" aria-labelledby="tab-users" hidden>
+        <div class="admin-panel__head"><h2>Admins</h2></div>
+        <p class="admin-hint">Alle Admins haben die gleichen Rechte: Inhalte pflegen und weitere Admins anlegen oder löschen.</p>
+        <ul class="admin-list" id="users-list" aria-live="polite"></ul>
+
+        <form class="form admin-editor" id="user-form" novalidate>
+          <h3>Neuen Admin anlegen</h3>
+          <div class="form-row--2">
+            <div class="form-row">
+              <label for="u-name">Name</label>
+              <input id="u-name" name="name" maxlength="80" placeholder="z. B. Anna Muster">
+            </div>
+            <div class="form-row">
+              <label for="u-username">Benutzername <span class="req" aria-hidden="true">*</span></label>
+              <input id="u-username" name="username" autocapitalize="none" spellcheck="false" maxlength="60" required placeholder="z. B. anna oder E-Mail-Adresse">
+            </div>
+          </div>
+          <div class="form-row mt-2">
+            <label for="u-password">Startpasswort <span class="req" aria-hidden="true">*</span></label>
+            <input id="u-password" name="password" type="text" autocomplete="off" minlength="4" required>
+            <p class="form-hint">Bitte der Person persönlich mitteilen. Sie kann es danach unter „Mein Konto“ ändern.</p>
+          </div>
+          <button class="btn btn--accent" type="submit">Admin anlegen</button>
+          <p class="admin-msg" role="alert" aria-live="assertive"></p>
+        </form>
+      </div>
+
+      <!-- ---------- Mein Konto ---------- -->
+      <div class="admin-panel" role="tabpanel" id="panel-account" aria-labelledby="tab-account" hidden>
+        <form class="form admin-editor" id="password-form" novalidate>
+          <h2>Passwort ändern</h2>
+          <div class="form-row">
+            <label for="p-current">Aktuelles Passwort</label>
+            <input id="p-current" name="current" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="form-row">
+            <label for="p-new">Neues Passwort</label>
+            <input id="p-new" name="password" type="password" autocomplete="new-password" minlength="4" required>
+          </div>
+          <button class="btn btn--accent" type="submit">Passwort ändern</button>
+          <p class="admin-msg" role="alert" aria-live="assertive"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="admin-toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

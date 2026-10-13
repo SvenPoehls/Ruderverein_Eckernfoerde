@@ -1,6 +1,12 @@
-# Statische Seite ohne Build – das Hauptverzeichnis wird direkt ausgeliefert.
+# Netlify-Konfiguration
+# - site/              → öffentliche Webseite (statisch, kein Build)
+# - netlify/functions/ → API für Login & Admin-Bereich (/api/…)
 [build]
-  publish = "."
+  publish = "site"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
 
 [[headers]]
   for = "/*"
@@ -9,3 +15,10 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+
+# Admin-Bereich nicht in Suchmaschinen
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"

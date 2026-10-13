@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO: Titel max. ca. 60 Zeichen, Beschreibung ca. 150–160 Zeichen -->
-  <title>Seite nicht gefunden | Ruderclub Eckernförde</title>
-  <meta name="description" content="Die angeforderte Seite wurde nicht gefunden.">
-  <meta name="robots" content="noindex, follow">
+  <title>Galerie | Ruderclub Eckernförde</title>
+  <meta name="description" content="Fotos vom Ruderclub Eckernförde: Training, Regatten, Jugend und Vereinsleben an der Eckernförder Bucht.">
+  <meta name="robots" content="index, follow">
   <!-- [PLATZHALTER: Canonical-URL nach Festlegung der Domain anpassen] -->
-  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/404.html">
+  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/galerie.html">
 
   <!-- Open Graph: Vorschau beim Teilen (WhatsApp, Facebook, Messenger …) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Ruderclub Eckernförde">
-  <meta property="og:title" content="Seite nicht gefunden | Ruderclub Eckernförde">
-  <meta property="og:description" content="Die angeforderte Seite wurde nicht gefunden.">
-  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/404.html">
+  <meta property="og:title" content="Galerie | Ruderclub Eckernförde">
+  <meta property="og:description" content="Fotos vom Ruderclub Eckernförde: Training, Regatten, Jugend und Vereinsleben an der Eckernförder Bucht.">
+  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/galerie.html">
   <!-- Vorschaubild: Ausschnitt aus dem Hero-Foto, bei Bedarf ersetzen (1200 × 630 px) -->
   <meta property="og:image" content="https://[PLATZHALTER-DOMAIN]/assets/img/og-bild.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -42,7 +42,7 @@
           <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
           <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#f5c400"/>
         </svg>
-        <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
+        <span class="brand__text">Ruderclub Eckernförde<small>Rudern seit 1924</small></span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
@@ -55,7 +55,7 @@
             <li><a href="verein.html">Verein</a></li>
             <li><a href="rudern.html">Rudern &amp; Training</a></li>
             <li><a href="aktuelles.html">Aktuelles</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="galerie.html" aria-current="page">Galerie</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a class="btn btn--accent" href="mitglied-werden.html">Mitglied werden</a></li>
         </ul>
@@ -68,19 +68,20 @@
     <section class="hero hero--page">
       <div class="container">
         <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
-          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Seite nicht gefunden</li></ol>
+          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Galerie</li></ol>
         </nav>
-        <h1>Seite nicht gefunden</h1>
-        <p class="lead">Diese Seite existiert leider nicht (mehr).</p>
+        <h1>Galerie</h1>
+        <p class="lead"><span class="todo">[MUSTERTEXT]</span> Eindrücke vom Training, von Regatten und aus dem Vereinsleben.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container container--narrow text-center">
-        <p>Vielleicht hilft dir einer dieser Links weiter:</p>
-        <div class="btn-row" style="justify-content:center">
-          <a class="btn btn--primary" href="index.html">Zur Startseite</a>
-          <a class="btn btn--outline" href="kontakt.html">Kontakt</a>
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title" class="visually-hidden">Fotos</h2>
+        <div class="filters" role="group" aria-label="Fotos nach Album filtern" data-filter-target="gallery"></div>
+        <!-- Bilder kommen aus inhalte/galerie.js -->
+        <div class="gallery" id="gallery" data-gallery>
+          <noscript><p>Die Galerie wird mit JavaScript geladen. Bitte aktivieren Sie JavaScript in Ihrem Browser.</p></noscript>
         </div>
       </div>
     </section>
@@ -98,9 +99,9 @@
           <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
           <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#f5c400"/>
         </svg>
-            <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
+            <span class="brand__text">Ruderclub Eckernförde<small>Rudern seit 1924</small></span>
           </a>
-          <p><span class="todo">[MUSTERTEXT]</span> Gemeinsam auf dem Wasser – für Einsteiger, Fitnessruderer und Wettkampfsportler in Eckernförde.</p>
+          <p><span class="todo">[MUSTERTEXT]</span> Seit 1924 gemeinsam auf dem Wasser – für Einsteiger, Fitnessruderer und Wettkampfsportler in Eckernförde.</p>
         </div>
         <div>
           <p class="footer-title">Verein</p>
@@ -133,6 +134,7 @@
         <ul>
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a class="footer-login" href="admin/" rel="nofollow">Login</a></li>
         </ul>
       </div>
     </div>

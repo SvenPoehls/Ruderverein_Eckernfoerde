@@ -2,8 +2,8 @@
    Ruderclub Eckernförde – main.js
    Bewusst minimal und ohne Bibliotheken:
      1. Mobiles Menü
-     2. Neuigkeiten anzeigen   (Daten: inhalte/aktuelles.js → window.AKTUELLES)
-     3. Galerie anzeigen       (Daten: inhalte/galerie.js   → window.GALERIE)
+     2. Neuigkeiten anzeigen   (Daten: /api/news, Rückfall inhalte/aktuelles.js)
+     3. Galerie anzeigen       (Daten: /api/gallery, Rückfall inhalte/galerie.js)
      4. Filter-Buttons
      5. Kontaktformular (Platzhalter, noch kein Versand)
      6. Jahreszahl im Footer
@@ -79,34 +79,55 @@
       "</div></article>";
   }
 
-  document.querySelectorAll("[data-news]").forEach(function (el) {
-    var limit = parseInt(el.getAttribute("data-news-limit"), 10) || 0;
-    var level = parseInt(el.getAttribute("data-heading-level"), 10) || 3;
-    var items = (window.AKTUELLES || []).slice().sort(function (a, b) {
-      return String(b.datum).localeCompare(String(a.datum)); // neueste zuerst
+  /* Datenquelle: Online kommen Beiträge & Bilder aus dem Admin-Bereich
+     (/api/news, /api/gallery). Solange dort noch nichts gespeichert wurde
+     – oder die Seite ohne Server geöffnet wird – gelten die Dateien in
+     inhalte/ als Rückfall. */
+  function loadContent(resource, fallback) {
+    if (!/^https?:$/.test(location.protocol)) return Promise.resolve(fallback);
+    return fetch("/api/" + resource, { headers: { Accept: "application/json" } })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (data) { return data && Array.isArray(data.items) ? data.items : fallback; })
+      .catch(function () { return fallback; });
+  }
+
+  var newsTargets = document.querySelectorAll("[data-news]");
+  if (newsTargets.length) {
+    loadContent("news", window.AKTUELLES || []).then(function (all) {
+      newsTargets.forEach(function (el) {
+        var limit = parseInt(el.getAttribute("data-news-limit"), 10) || 0;
+        var level = parseInt(el.getAttribute("data-heading-level"), 10) || 3;
+        var items = all.slice().sort(function (a, b) {
+          return String(b.datum).localeCompare(String(a.datum)); // neueste zuerst
+        });
+        if (limit) items = items.slice(0, limit);
+        el.innerHTML = items.length
+          ? items.map(function (i) { return newsCard(i, level); }).join("")
+          : "<p>Zurzeit gibt es keine Neuigkeiten.</p>";
+        buildFilters(el, items.map(function (i) { return i.kategorie; }), "article");
+      });
     });
-    if (limit) items = items.slice(0, limit);
-    el.innerHTML = items.length
-      ? items.map(function (i) { return newsCard(i, level); }).join("")
-      : "<p>Zurzeit gibt es keine Neuigkeiten.</p>";
-    buildFilters(el, items.map(function (i) { return i.kategorie; }), "article");
-  });
+  }
 
 
   /* ---------- 3. Galerie ---------- */
-  document.querySelectorAll("[data-gallery]").forEach(function (el) {
-    var items = window.GALERIE || [];
-    el.innerHTML = items.map(function (bild) {
-      var img = bild.datei
-        ? '<a href="' + esc(bild.datei) + '" target="_blank" rel="noopener"><img src="' + esc(bild.datei) +
-          '" alt="' + esc(bild.alt) + '" loading="lazy" width="800" height="600"></a>'
-        : placeholderImg("[PLATZHALTER: " + (bild.alt || "Foto") + "]");
-      return '<figure data-kategorie="' + esc(bild.album) + '">' + img +
-        (bild.bildunterschrift ? "<figcaption>" + esc(bild.bildunterschrift) + "</figcaption>" : "") +
-        "</figure>";
-    }).join("");
-    buildFilters(el, items.map(function (b) { return b.album; }), "figure");
-  });
+  var galleryTargets = document.querySelectorAll("[data-gallery]");
+  if (galleryTargets.length) {
+    loadContent("gallery", window.GALERIE || []).then(function (items) {
+      galleryTargets.forEach(function (el) {
+        el.innerHTML = items.length ? items.map(function (bild) {
+          var img = bild.datei
+            ? '<a href="' + esc(bild.datei) + '" target="_blank" rel="noopener"><img src="' + esc(bild.datei) +
+              '" alt="' + esc(bild.alt) + '" loading="lazy" width="800" height="600"></a>'
+            : placeholderImg("[PLATZHALTER: " + (bild.alt || "Foto") + "]");
+          return '<figure data-kategorie="' + esc(bild.album) + '">' + img +
+            (bild.bildunterschrift ? "<figcaption>" + esc(bild.bildunterschrift) + "</figcaption>" : "") +
+            "</figure>";
+        }).join("") : "<p>Zurzeit sind keine Bilder vorhanden.</p>";
+        buildFilters(el, items.map(function (b) { return b.album; }), "figure");
+      });
+    });
+  }
 
 
   /* ---------- 4. Filter-Buttons ----------
