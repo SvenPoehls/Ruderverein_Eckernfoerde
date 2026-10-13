@@ -3,105 +3,207 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Der Verein | Ruderclub Eckernförde</title>
-  <meta name="description" content="Lernen Sie den Ruderclub Eckernförde kennen: Verein, Bootshaus, Revier und Ansprechpersonen.">
-  <!-- Open Graph (für Vorschau in WhatsApp, Facebook usw.) -->
+
+  <!-- SEO: Titel max. ca. 60 Zeichen, Beschreibung ca. 150–160 Zeichen -->
+  <title>Über uns | Ruderclub Eckernförde</title>
+  <meta name="description" content="Der Ruderclub Eckernförde stellt sich vor: Vereinsgeschichte, Werte, Bootshaus, Revier sowie Vorstand und Ansprechpersonen.">
+  <meta name="robots" content="index, follow">
+  <!-- [PLATZHALTER: Canonical-URL nach Festlegung der Domain anpassen] -->
+  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/verein.html">
+
+  <!-- Open Graph: Vorschau beim Teilen (WhatsApp, Facebook, Messenger …) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Ruderclub Eckernförde">
-  <meta property="og:title" content="Der Verein | Ruderclub Eckernförde">
-  <meta property="og:description" content="Lernen Sie den Ruderclub Eckernförde kennen: Verein, Bootshaus, Revier und Ansprechpersonen.">
-  <!-- [PLATZHALTER: og:image – Vorschaubild 1200x630 px, z. B. assets/img/og-image.jpg] -->
-  <!-- [PLATZHALTER: og:url und canonical – endgültige Domain] -->
+  <meta property="og:title" content="Über uns | Ruderclub Eckernförde">
+  <meta property="og:description" content="Der Ruderclub Eckernförde stellt sich vor: Vereinsgeschichte, Werte, Bootshaus, Revier sowie Vorstand und Ansprechpersonen.">
+  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/verein.html">
+  <!-- [PLATZHALTER: Vorschaubild 1200 × 630 px als assets/img/og-bild.jpg ablegen] -->
+  <meta property="og:image" content="https://[PLATZHALTER-DOMAIN]/assets/img/og-bild.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#0a2540">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <!-- ===== Kopfbereich & Navigation ===== -->
+  <!-- ================= KOPFBEREICH ================= -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
-        <svg viewBox="0 0 48 48" role="img" aria-label="Logo-Platzhalter" focusable="false"><circle cx="24" cy="24" r="23" fill="#2bb3d1"/><path d="M6 30c4-4 8-4 12 0s8 4 12 0 8-4 12 0v10H6z" fill="#fff" opacity=".9"/><path d="M14 10l20 20" stroke="#0b3a63" stroke-width="3" stroke-linecap="round"/><ellipse cx="35" cy="31" rx="3" ry="6" transform="rotate(-45 35 31)" fill="#0b3a63"/></svg>
-        <span>Ruderclub<br>Eckernförde<small>[PLATZHALTER: Logo / Gründungsjahr]</small></span>
+        <!-- [PLATZHALTER: Vereinslogo – Datei als assets/img/logo.svg einsetzen] -->
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#19a7c4"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a2540" opacity=".85"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#ffb020"/>
+        </svg>
+        <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
-      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menü</span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Hauptmenü">
         <ul>
-          <li><a href="index.html">Start</a></li>
-          <li><a href="verein.html" aria-current="page">Verein</a></li>
-          <li><a href="rudern.html">Rudern & Angebote</a></li>
-          <li><a href="aktuelles.html">Aktuelles</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a class="nav-cta" href="mitmachen.html">Mitglied werden</a></li>
+            <li><a href="verein.html" aria-current="page">Verein</a></li>
+            <li><a href="rudern.html">Rudern &amp; Training</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a class="btn btn--accent" href="mitglied-werden.html">Mitglied werden</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="inhalt">
-    <section class="hero page-hero"><div class="container"><h1>Der Verein</h1><p>Gemeinschaft, Sport und Natur an der Ostsee.</p></div></section>
-
-    <section class="section" aria-labelledby="h-ueber">
-      <div class="container grid grid--2">
-        <div>
-          <h2 id="h-ueber">Wer wir sind</h2>
-          <p><span class="platzhalter">[MUSTERTEXT]</span> Der Ruderclub Eckernförde ist ein Sportverein mit Sitz in Eckernförde. <span class="platzhalter">[PLATZHALTER: Gründungsjahr und Vereinsgeschichte in 2–3 Sätzen]</span></p>
-          <p><span class="platzhalter">[MUSTERTEXT]</span> Bei uns rudern Kinder, Jugendliche, Erwachsene und Seniorinnen und Senioren – im Breitensport ebenso wie im Wettkampf.</p>
-        </div>
-        <div class="ph " role="img" aria-label="Bildplatzhalter: Vereinsfoto / Gruppenbild am Bootshaus">[PLATZHALTER: Vereinsfoto / Gruppenbild am Bootshaus]</div>
-      </div>
-    </section>
-
-    <section class="section section--soft" aria-labelledby="h-bootshaus">
-      <div class="container grid grid--2">
-        <div class="ph " role="img" aria-label="Bildplatzhalter: Foto Bootshaus und Steg">[PLATZHALTER: Foto Bootshaus und Steg]</div>
-        <div>
-          <h2 id="h-bootshaus">Unser Bootshaus &amp; Revier</h2>
-          <p><span class="platzhalter">[MUSTERTEXT]</span> Beschreibung des Bootshauses, der Boote und des Reviers. <span class="platzhalter">[PLATZHALTER: Bootsbestand, Revier, Ausstattung]</span></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="h-vorstand">
+    <!-- ===== Seitenkopf ===== -->
+    <section class="hero hero--page">
       <div class="container">
-        <h2 id="h-vorstand">Vorstand &amp; Ansprechpersonen</h2>
+        <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
+          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Verein</li></ol>
+        </nav>
+        <h1>Über den Ruderclub Eckernförde</h1>
+        <p class="lead"><span class="todo">[MUSTERTEXT]</span> Ein Verein mit Geschichte, Herz und viel Wasser unter dem Kiel.</p>
+      </div>
+      <svg class="hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 48c120-20 240-30 360-14s240 40 360 34 240-40 360-46 240 18 360 26v32H0z"/></svg>
+    </section>
+
+    <section class="section" aria-labelledby="about-title">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Wer wir sind</span>
+          <h2 id="about-title">Rudern mit Tradition – offen für alle</h2>
+          <p><span class="todo">[MUSTERTEXT]</span> Der Ruderclub Eckernförde ist ein Sportverein, in dem Menschen jeden Alters gemeinsam rudern. Bei uns trainieren Kinder und Jugendliche ebenso wie Erwachsene und Seniorinnen und Senioren – im Breitensport, auf Wanderfahrten und im Wettkampf.</p>
+          <p><span class="todo">[PLATZHALTER: Kurze Vereinsgeschichte: Gründungsjahr, wichtige Stationen, besondere Erfolge]</span></p>
+          <ul class="checklist">
+            <li><span class="todo">[MUSTERTEXT]</span> Erfahrene, ehrenamtliche Trainerinnen und Trainer</li>
+            <li><span class="todo">[MUSTERTEXT]</span> Vereinseigene Boote für alle Leistungsstufen</li>
+            <li><span class="todo">[MUSTERTEXT]</span> Aktives Vereinsleben mit Festen und Wanderfahrten</li>
+          </ul>
+        </div>
+        <div class="ph ph--portrait" role="img" aria-label="Bildplatzhalter: Gruppenfoto der Mitglieder vor dem Bootshaus">[PLATZHALTER: Gruppenfoto der Mitglieder vor dem Bootshaus]</div>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="values-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow">Wofür wir stehen</span>
+          <h2 id="values-title">Unsere Werte</h2>
+        </div>
         <div class="grid grid--3">
-          <div class="card"><div class="ph" role="img" aria-label="Bildplatzhalter: Foto">[PLATZHALTER: Foto Person 1]</div><div class="card__body"><h3><span class="platzhalter">[PLATZHALTER: Name]</span></h3><p><span class="platzhalter">[PLATZHALTER: Funktion, z. B. 1. Vorsitzende/r]</span></p></div></div>
-          <div class="card"><div class="ph" role="img" aria-label="Bildplatzhalter: Foto">[PLATZHALTER: Foto Person 2]</div><div class="card__body"><h3><span class="platzhalter">[PLATZHALTER: Name]</span></h3><p><span class="platzhalter">[PLATZHALTER: Funktion, z. B. Trainer/in]</span></p></div></div>
-          <div class="card"><div class="ph" role="img" aria-label="Bildplatzhalter: Foto">[PLATZHALTER: Foto Person 3]</div><div class="card__body"><h3><span class="platzhalter">[PLATZHALTER: Name]</span></h3><p><span class="platzhalter">[PLATZHALTER: Funktion, z. B. Jugendwart/in]</span></p></div></div>
+          <article class="feature"><div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3>Gemeinschaft</h3><p><span class="todo">[MUSTERTEXT]</span> Ob jung oder alt, Anfänger oder Profi – im Boot sind alle gleich wichtig.</p></article>
+          <article class="feature"><div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3z"/></svg></div><h3>Sicherheit</h3><p><span class="todo">[MUSTERTEXT]</span> Ausbildung, Sicherheitsregeln und gepflegtes Material haben bei uns höchste Priorität.</p></article>
+          <article class="feature"><div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div><h3>Leistung mit Freude</h3><p><span class="todo">[MUSTERTEXT]</span> Wir fördern sportlichen Ehrgeiz – ohne dabei den Spaß aus den Augen zu verlieren.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="house-title">
+      <div class="container split split--reverse">
+        <div>
+          <span class="eyebrow">Bootshaus &amp; Revier</span>
+          <h2 id="house-title">Unser Zuhause am Wasser</h2>
+          <p><span class="todo">[MUSTERTEXT]</span> Unser Bootshaus liegt direkt am Wasser. Hier lagern unsere Boote, hier treffen wir uns vor und nach dem Training.</p>
+          <p><span class="todo">[PLATZHALTER: Beschreibung von Bootshaus, Steg, Bootspark (z. B. Einer, Zweier, Vierer, Achter, Gig-Boote) und Revier]</span></p>
+        </div>
+        <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Bootshaus mit Steg">[PLATZHALTER: Foto – Bootshaus mit Steg]</div>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Ansprechpersonen</span>
+          <h2 id="team-title">Vorstand &amp; Team</h2>
+          <p><span class="todo">[PLATZHALTER: Hinweis: Fotos und Namen nur mit Einverständnis der Personen veröffentlichen]</span></p>
+        </div>
+        <div class="grid grid--4">
+          <article class="person"><div class="ph " role="img" aria-label="Bildplatzhalter: Porträtfoto">[PLATZHALTER: Porträtfoto]</div><h3><span class="todo">[PLATZHALTER: Name]</span></h3><p>1. Vorsitz</p></article>
+          <article class="person"><div class="ph " role="img" aria-label="Bildplatzhalter: Porträtfoto">[PLATZHALTER: Porträtfoto]</div><h3><span class="todo">[PLATZHALTER: Name]</span></h3><p>2. Vorsitz</p></article>
+          <article class="person"><div class="ph " role="img" aria-label="Bildplatzhalter: Porträtfoto">[PLATZHALTER: Porträtfoto]</div><h3><span class="todo">[PLATZHALTER: Name]</span></h3><p>Sportwart/-in</p></article>
+          <article class="person"><div class="ph " role="img" aria-label="Bildplatzhalter: Porträtfoto">[PLATZHALTER: Porträtfoto]</div><h3><span class="todo">[PLATZHALTER: Name]</span></h3><p>Jugendwart/-in</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Call-to-Action ===== -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2 id="cta-title">Lust, es selbst auszuprobieren?</h2>
+            <p><span class="todo">[MUSTERTEXT]</span> Komm zu einem unverbindlichen Probetraining. Wir stellen Boot, Skulls und eine erfahrene Begleitung – du bringst nur Sportkleidung mit.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn--accent" href="kontakt.html">Probetraining anfragen</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== Fußbereich ===== -->
+  <!-- ================= FUSSBEREICH ================= -->
   <footer class="site-footer">
     <div class="container">
-      <div class="grid grid--3">
+      <div class="footer-grid">
         <div>
-          <h2>Ruderclub Eckernförde</h2>
-          <p><span class="platzhalter">[PLATZHALTER: Straße und Hausnummer]</span><br><span class="platzhalter">[PLATZHALTER: PLZ]</span> Eckernförde<br><span class="platzhalter">[PLATZHALTER: Bootshaus-Adresse prüfen]</span></p>
+          <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
+            <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#19a7c4"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a2540" opacity=".85"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#ffb020"/>
+        </svg>
+            <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
+          </a>
+          <p><span class="todo">[MUSTERTEXT]</span> Gemeinsam auf dem Wasser – für Einsteiger, Fitnessruderer und Wettkampfsportler in Eckernförde.</p>
         </div>
         <div>
-          <h2>Kontakt</h2>
-          <p>Telefon: <span class="platzhalter">[PLATZHALTER: Telefonnummer]</span><br>E-Mail: <span class="platzhalter">[PLATZHALTER: E-Mail-Adresse]</span></p>
-        </div>
-        <div>
-          <h2>Navigation</h2>
+          <p class="footer-title">Verein</p>
           <ul>
-            <li><a href="verein.html">Der Verein</a></li>
-            <li><a href="mitmachen.html">Mitglied werden</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="verein.html">Über uns</a></li>
+            <li><a href="rudern.html">Rudern &amp; Training</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
           </ul>
         </div>
+        <div>
+          <p class="footer-title">Mitmachen</p>
+          <ul>
+            <li><a href="mitglied-werden.html">Mitglied werden</a></li>
+            <li><a href="kontakt.html">Probetraining anfragen</a></li>
+            <li><a href="kontakt.html#anfahrt">Anfahrt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Kontakt</p>
+          <address style="font-style:normal">
+            <span class="todo">[PLATZHALTER: Straße Hausnr.]</span><br>
+            <span class="todo">[PLATZHALTER: PLZ]</span> Eckernförde<br>
+            <span class="todo">[PLATZHALTER: E-Mail-Adresse]</span>
+          </address>
+        </div>
       </div>
-      <p class="footer-bottom">© <span id="jahr">2026</span> Ruderclub Eckernförde · <span class="platzhalter">[PLATZHALTER: Social-Media-Links, falls gewünscht]</span></p>
+      <div class="footer-bottom">
+        <p class="mt-0">© <span data-year>2026</span> Ruderclub Eckernförde <span class="todo">[PLATZHALTER: Rechtsform, z. B. e. V.]</span></p>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
-  <script src="js/news-data.js"></script>
+  <!-- Inhalte (vom Verein gepflegt) und Skripte -->
+  <script src="inhalte/aktuelles.js"></script>
+  <script src="inhalte/galerie.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

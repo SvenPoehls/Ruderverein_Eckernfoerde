@@ -3,108 +3,218 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rudern & Angebote | Ruderclub Eckernförde</title>
-  <meta name="description" content="Angebote des Ruderclubs Eckernförde: Anfängerkurs, Breitensport, Jugend und Wettkampf sowie Trainingszeiten.">
-  <!-- Open Graph (für Vorschau in WhatsApp, Facebook usw.) -->
+
+  <!-- SEO: Titel max. ca. 60 Zeichen, Beschreibung ca. 150–160 Zeichen -->
+  <title>Rudern & Training | Ruderclub Eckernförde</title>
+  <meta name="description" content="Rudern lernen in Eckernförde: Einsteigerkurse, Jugendrudern, Breitensport und Wettkampf. Trainingszeiten und häufige Fragen im Überblick.">
+  <meta name="robots" content="index, follow">
+  <!-- [PLATZHALTER: Canonical-URL nach Festlegung der Domain anpassen] -->
+  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/rudern.html">
+
+  <!-- Open Graph: Vorschau beim Teilen (WhatsApp, Facebook, Messenger …) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Ruderclub Eckernförde">
-  <meta property="og:title" content="Rudern & Angebote | Ruderclub Eckernförde">
-  <meta property="og:description" content="Angebote des Ruderclubs Eckernförde: Anfängerkurs, Breitensport, Jugend und Wettkampf sowie Trainingszeiten.">
-  <!-- [PLATZHALTER: og:image – Vorschaubild 1200x630 px, z. B. assets/img/og-image.jpg] -->
-  <!-- [PLATZHALTER: og:url und canonical – endgültige Domain] -->
+  <meta property="og:title" content="Rudern & Training | Ruderclub Eckernförde">
+  <meta property="og:description" content="Rudern lernen in Eckernförde: Einsteigerkurse, Jugendrudern, Breitensport und Wettkampf. Trainingszeiten und häufige Fragen im Überblick.">
+  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/rudern.html">
+  <!-- [PLATZHALTER: Vorschaubild 1200 × 630 px als assets/img/og-bild.jpg ablegen] -->
+  <meta property="og:image" content="https://[PLATZHALTER-DOMAIN]/assets/img/og-bild.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#0a2540">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <!-- ===== Kopfbereich & Navigation ===== -->
+  <!-- ================= KOPFBEREICH ================= -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
-        <svg viewBox="0 0 48 48" role="img" aria-label="Logo-Platzhalter" focusable="false"><circle cx="24" cy="24" r="23" fill="#2bb3d1"/><path d="M6 30c4-4 8-4 12 0s8 4 12 0 8-4 12 0v10H6z" fill="#fff" opacity=".9"/><path d="M14 10l20 20" stroke="#0b3a63" stroke-width="3" stroke-linecap="round"/><ellipse cx="35" cy="31" rx="3" ry="6" transform="rotate(-45 35 31)" fill="#0b3a63"/></svg>
-        <span>Ruderclub<br>Eckernförde<small>[PLATZHALTER: Logo / Gründungsjahr]</small></span>
+        <!-- [PLATZHALTER: Vereinslogo – Datei als assets/img/logo.svg einsetzen] -->
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#19a7c4"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a2540" opacity=".85"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#ffb020"/>
+        </svg>
+        <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
-      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menü</span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Hauptmenü">
         <ul>
-          <li><a href="index.html">Start</a></li>
-          <li><a href="verein.html">Verein</a></li>
-          <li><a href="rudern.html" aria-current="page">Rudern & Angebote</a></li>
-          <li><a href="aktuelles.html">Aktuelles</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a class="nav-cta" href="mitmachen.html">Mitglied werden</a></li>
+            <li><a href="verein.html">Verein</a></li>
+            <li><a href="rudern.html" aria-current="page">Rudern &amp; Training</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a class="btn btn--accent" href="mitglied-werden.html">Mitglied werden</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="inhalt">
-    <section class="hero page-hero"><div class="container"><h1>Rudern &amp; Angebote</h1><p>Für jedes Alter und jedes Niveau.</p></div></section>
-
-    <section class="section" aria-labelledby="h-angebote">
+    <!-- ===== Seitenkopf ===== -->
+    <section class="hero hero--page">
       <div class="container">
-        <div class="section__head"><h2 id="h-angebote">Unsere Angebote</h2></div>
-        <div class="grid grid--3">
-          <div class="card card--icon"><div class="card__body"><h3>Einsteiger &amp; Anfängerkurs</h3><p><span class="platzhalter">[MUSTERTEXT]</span> Rudern lernen in kleinen Gruppen mit erfahrenen Trainerinnen und Trainern. <span class="platzhalter">[PLATZHALTER: Kurstermine]</span></p></div></div>
-          <div class="card card--icon"><div class="card__body"><h3>Breitensport &amp; Wanderrudern</h3><p><span class="platzhalter">[MUSTERTEXT]</span> Gemeinsame Ausfahrten, Fitness und Geselligkeit. <span class="platzhalter">[PLATZHALTER: Zeiten]</span></p></div></div>
-          <div class="card card--icon"><div class="card__body"><h3>Jugend &amp; Wettkampf</h3><p><span class="platzhalter">[MUSTERTEXT]</span> Training und Regatten für Kinder und Jugendliche. <span class="platzhalter">[PLATZHALTER: Altersgruppen / Trainingszeiten]</span></p></div></div>
+        <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
+          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Rudern &amp; Training</li></ol>
+        </nav>
+        <h1>Rudern &amp; Training</h1>
+        <p class="lead"><span class="todo">[MUSTERTEXT]</span> Vom ersten Ruderschlag bis zur Regatta – finde das passende Angebot.</p>
+      </div>
+      <svg class="hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 48c120-20 240-30 360-14s240 40 360 34 240-40 360-46 240 18 360 26v32H0z"/></svg>
+    </section>
+
+    <section class="section" aria-label="Angebote">
+      <div class="container">
+        <article class="split" id="einsteiger" style="margin-bottom:4rem">
+          <div>
+            <span class="tag">Neu dabei</span>
+            <h2 class="mt-2">Rudern lernen – Einsteigerkurse</h2>
+            <p><span class="todo">[MUSTERTEXT]</span> Du hast noch nie in einem Ruderboot gesessen? Kein Problem. In unseren Kursen lernst du in kleinen Gruppen die Grundlagen: Technik, Bootshandling und Sicherheit auf dem Wasser.</p>
+            <ul class="checklist"><li>Kurstermine: <span class="todo">[PLATZHALTER: Zeitraum / Termine]</span></li><li>Voraussetzung: <span class="todo">[PLATZHALTER: z. B. Schwimmfähigkeit, Mindestalter]</span></li><li>Kosten: <span class="todo">[PLATZHALTER: Kursgebühr]</span></li></ul>
+          </div>
+          <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Einsteigerkurs">[PLATZHALTER: Foto – Einsteigerkurs]</div>
+        </article>
+        <article class="split" id="jugend" style="margin-bottom:4rem">
+          <div>
+            <span class="tag">Kinder &amp; Jugend</span>
+            <h2 class="mt-2">Jugendrudern</h2>
+            <p><span class="todo">[MUSTERTEXT]</span> Unsere Jugendabteilung bietet Training in altersgerechten Gruppen, gemeinsame Wanderfahrten und die Möglichkeit, an Regatten teilzunehmen.</p>
+            <ul class="checklist"><li>Alter: <span class="todo">[PLATZHALTER: Altersgruppen]</span></li><li>Training: <span class="todo">[PLATZHALTER: Tage und Uhrzeiten]</span></li><li>Ansprechperson: <span class="todo">[PLATZHALTER: Name Jugendwart/-in]</span></li></ul>
+          </div>
+          <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Jugendgruppe beim Training">[PLATZHALTER: Foto – Jugendgruppe beim Training]</div>
+        </article>
+        <article class="split" id="breitensport" style="margin-bottom:4rem">
+          <div>
+            <span class="tag">Erwachsene</span>
+            <h2 class="mt-2">Breitensport, Wanderrudern &amp; Wettkampf</h2>
+            <p><span class="todo">[MUSTERTEXT]</span> Ob entspannte Ausfahrt nach Feierabend, mehrtägige Wanderfahrt oder ambitioniertes Regattatraining – bei uns findest du deinen Weg.</p>
+            <ul class="checklist"><li>Breitensport: <span class="todo">[PLATZHALTER: Termine]</span></li><li>Wettkampfgruppe: <span class="todo">[PLATZHALTER: Termine / Voraussetzungen]</span></li><li>Wintertraining: <span class="todo">[PLATZHALTER: z. B. Ergometer, Halle]</span></li></ul>
+          </div>
+          <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Erwachsene im Mannschaftsboot">[PLATZHALTER: Foto – Erwachsene im Mannschaftsboot]</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="times-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Wann wir rudern</span>
+          <h2 id="times-title">Trainingszeiten</h2>
+          <p><span class="todo">[PLATZHALTER: Hinweis zur Saison, z. B. Sommer- und Winterzeiten]</span></p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Trainingszeiten nach Gruppe</caption>
+            <thead><tr><th scope="col">Gruppe</th><th scope="col">Tag</th><th scope="col">Uhrzeit</th><th scope="col">Ort</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Einsteiger</th><td><span class="todo">[PLATZHALTER: Tag]</span></td><td><span class="todo">[PLATZHALTER: Uhrzeit]</span></td><td><span class="todo">[PLATZHALTER: Ort]</span></td></tr>
+              <tr><th scope="row">Jugend</th><td><span class="todo">[PLATZHALTER: Tag]</span></td><td><span class="todo">[PLATZHALTER: Uhrzeit]</span></td><td><span class="todo">[PLATZHALTER: Ort]</span></td></tr>
+              <tr><th scope="row">Breitensport</th><td><span class="todo">[PLATZHALTER: Tag]</span></td><td><span class="todo">[PLATZHALTER: Uhrzeit]</span></td><td><span class="todo">[PLATZHALTER: Ort]</span></td></tr>
+              <tr><th scope="row">Wettkampf</th><td><span class="todo">[PLATZHALTER: Tag]</span></td><td><span class="todo">[PLATZHALTER: Uhrzeit]</span></td><td><span class="todo">[PLATZHALTER: Ort]</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section class="section section--soft" aria-labelledby="h-zeiten">
-      <div class="container">
-        <h2 id="h-zeiten">Trainingszeiten</h2>
-        <table>
-          <caption class="mustertext-hinweis" style="text-align:left;padding-bottom:.5rem">Tabelle als Vorlage – bitte ausfüllen.</caption>
-          <thead><tr><th scope="col">Gruppe</th><th scope="col">Tag</th><th scope="col">Uhrzeit</th><th scope="col">Ort</th></tr></thead>
-          <tbody>
-            <tr><td><span class="platzhalter">[PLATZHALTER: Gruppe 1]</span></td><td><span class="platzhalter">[PLATZHALTER: Tag]</span></td><td><span class="platzhalter">[PLATZHALTER: Uhrzeit]</span></td><td><span class="platzhalter">[PLATZHALTER: Ort]</span></td></tr>
-            <tr><td><span class="platzhalter">[PLATZHALTER: Gruppe 2]</span></td><td><span class="platzhalter">[PLATZHALTER: Tag]</span></td><td><span class="platzhalter">[PLATZHALTER: Uhrzeit]</span></td><td><span class="platzhalter">[PLATZHALTER: Ort]</span></td></tr>
-          </tbody>
-        </table>
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section-head section-head--center">
+          <span class="eyebrow">FAQ</span>
+          <h2 id="faq-title">Häufige Fragen</h2>
+        </div>
+        <div class="faq">
+          <details><summary>Muss ich schwimmen können?</summary><div><p><span class="todo">[PLATZHALTER: Antwort – z. B. Nachweis der Schwimmfähigkeit erforderlich?]</span></p></div></details>
+          <details><summary>Brauche ich Vorkenntnisse oder ein eigenes Boot?</summary><div><p><span class="todo">[MUSTERTEXT]</span> Nein. Boote und Skulls stellt der Verein, die Technik lernst du bei uns. <span class="todo">[PLATZHALTER: Bitte bestätigen]</span></p></div></details>
+          <details><summary>Was muss ich zum Probetraining mitbringen?</summary><div><p><span class="todo">[MUSTERTEXT]</span> Eng anliegende Sportkleidung, Wechselsachen und etwas zu trinken. <span class="todo">[PLATZHALTER: Bitte ergänzen]</span></p></div></details>
+          <details><summary>Ab welchem Alter kann man rudern?</summary><div><p><span class="todo">[PLATZHALTER: Mindestalter]</span></p></div></details>
+          <details><summary>Wird auch im Winter trainiert?</summary><div><p><span class="todo">[PLATZHALTER: Wintertraining beschreiben]</span></p></div></details>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="h-faq">
-      <div class="container legal">
-        <h2 id="h-faq">Häufige Fragen</h2>
-        <details><summary>Muss ich schwimmen können?</summary><p><span class="platzhalter">[MUSTERTEXT]</span> <span class="platzhalter">[PLATZHALTER: Antwort des Vereins]</span></p></details>
-        <details><summary>Brauche ich Vorkenntnisse oder eigene Ausrüstung?</summary><p><span class="platzhalter">[MUSTERTEXT]</span> <span class="platzhalter">[PLATZHALTER: Antwort des Vereins]</span></p></details>
-        <details><summary>Kann ich ein Probetraining machen?</summary><p><span class="platzhalter">[MUSTERTEXT]</span> Ja – nehmen Sie einfach Kontakt auf. <span class="platzhalter">[PLATZHALTER: Ablauf Probetraining]</span></p></details>
-        <details><summary>Ab welchem Alter kann man mitrudern?</summary><p><span class="platzhalter">[MUSTERTEXT]</span> <span class="platzhalter">[PLATZHALTER: Altersangabe]</span></p></details>
+    <!-- ===== Call-to-Action ===== -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2 id="cta-title">Lust, es selbst auszuprobieren?</h2>
+            <p><span class="todo">[MUSTERTEXT]</span> Komm zu einem unverbindlichen Probetraining. Wir stellen Boot, Skulls und eine erfahrene Begleitung – du bringst nur Sportkleidung mit.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn--accent" href="kontakt.html">Probetraining anfragen</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== Fußbereich ===== -->
+  <!-- ================= FUSSBEREICH ================= -->
   <footer class="site-footer">
     <div class="container">
-      <div class="grid grid--3">
+      <div class="footer-grid">
         <div>
-          <h2>Ruderclub Eckernförde</h2>
-          <p><span class="platzhalter">[PLATZHALTER: Straße und Hausnummer]</span><br><span class="platzhalter">[PLATZHALTER: PLZ]</span> Eckernförde<br><span class="platzhalter">[PLATZHALTER: Bootshaus-Adresse prüfen]</span></p>
+          <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
+            <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#19a7c4"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a2540" opacity=".85"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#ffb020"/>
+        </svg>
+            <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
+          </a>
+          <p><span class="todo">[MUSTERTEXT]</span> Gemeinsam auf dem Wasser – für Einsteiger, Fitnessruderer und Wettkampfsportler in Eckernförde.</p>
         </div>
         <div>
-          <h2>Kontakt</h2>
-          <p>Telefon: <span class="platzhalter">[PLATZHALTER: Telefonnummer]</span><br>E-Mail: <span class="platzhalter">[PLATZHALTER: E-Mail-Adresse]</span></p>
-        </div>
-        <div>
-          <h2>Navigation</h2>
+          <p class="footer-title">Verein</p>
           <ul>
-            <li><a href="verein.html">Der Verein</a></li>
-            <li><a href="mitmachen.html">Mitglied werden</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="verein.html">Über uns</a></li>
+            <li><a href="rudern.html">Rudern &amp; Training</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
           </ul>
         </div>
+        <div>
+          <p class="footer-title">Mitmachen</p>
+          <ul>
+            <li><a href="mitglied-werden.html">Mitglied werden</a></li>
+            <li><a href="kontakt.html">Probetraining anfragen</a></li>
+            <li><a href="kontakt.html#anfahrt">Anfahrt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Kontakt</p>
+          <address style="font-style:normal">
+            <span class="todo">[PLATZHALTER: Straße Hausnr.]</span><br>
+            <span class="todo">[PLATZHALTER: PLZ]</span> Eckernförde<br>
+            <span class="todo">[PLATZHALTER: E-Mail-Adresse]</span>
+          </address>
+        </div>
       </div>
-      <p class="footer-bottom">© <span id="jahr">2026</span> Ruderclub Eckernförde · <span class="platzhalter">[PLATZHALTER: Social-Media-Links, falls gewünscht]</span></p>
+      <div class="footer-bottom">
+        <p class="mt-0">© <span data-year>2026</span> Ruderclub Eckernförde <span class="todo">[PLATZHALTER: Rechtsform, z. B. e. V.]</span></p>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
-  <script src="js/news-data.js"></script>
+  <!-- Inhalte (vom Verein gepflegt) und Skripte -->
+  <script src="inhalte/aktuelles.js"></script>
+  <script src="inhalte/galerie.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,83 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO: Titel max. ca. 60 Zeichen, Beschreibung ca. 150–160 Zeichen -->
   <title>Datenschutzerklärung | Ruderclub Eckernförde</title>
   <meta name="description" content="Datenschutzerklärung des Ruderclubs Eckernförde.">
-  <meta name="robots" content="noindex">
-  <!-- Open Graph (für Vorschau in WhatsApp, Facebook usw.) -->
+  <meta name="robots" content="noindex, follow">
+  <!-- [PLATZHALTER: Canonical-URL nach Festlegung der Domain anpassen] -->
+  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/datenschutz.html">
+
+  <!-- Open Graph: Vorschau beim Teilen (WhatsApp, Facebook, Messenger …) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Ruderclub Eckernförde">
   <meta property="og:title" content="Datenschutzerklärung | Ruderclub Eckernförde">
   <meta property="og:description" content="Datenschutzerklärung des Ruderclubs Eckernförde.">
-  <!-- [PLATZHALTER: og:image – Vorschaubild 1200x630 px, z. B. assets/img/og-image.jpg] -->
-  <!-- [PLATZHALTER: og:url und canonical – endgültige Domain] -->
+  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/datenschutz.html">
+  <!-- [PLATZHALTER: Vorschaubild 1200 × 630 px als assets/img/og-bild.jpg ablegen] -->
+  <meta property="og:image" content="https://[PLATZHALTER-DOMAIN]/assets/img/og-bild.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#0a2540">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <!-- ===== Kopfbereich & Navigation ===== -->
+  <!-- ================= KOPFBEREICH ================= -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
-        <svg viewBox="0 0 48 48" role="img" aria-label="Logo-Platzhalter" focusable="false"><circle cx="24" cy="24" r="23" fill="#2bb3d1"/><path d="M6 30c4-4 8-4 12 0s8 4 12 0 8-4 12 0v10H6z" fill="#fff" opacity=".9"/><path d="M14 10l20 20" stroke="#0b3a63" stroke-width="3" stroke-linecap="round"/><ellipse cx="35" cy="31" rx="3" ry="6" transform="rotate(-45 35 31)" fill="#0b3a63"/></svg>
-        <span>Ruderclub<br>Eckernförde<small>[PLATZHALTER: Logo / Gründungsjahr]</small></span>
+        <!-- [PLATZHALTER: Vereinslogo – Datei als assets/img/logo.svg einsetzen] -->
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#19a7c4"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a2540" opacity=".85"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#ffb020"/>
+        </svg>
+        <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
-      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menü</span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Hauptmenü">
         <ul>
-          <li><a href="index.html">Start</a></li>
-          <li><a href="verein.html">Verein</a></li>
-          <li><a href="rudern.html">Rudern & Angebote</a></li>
-          <li><a href="aktuelles.html">Aktuelles</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a class="nav-cta" href="mitmachen.html">Mitglied werden</a></li>
+            <li><a href="verein.html">Verein</a></li>
+            <li><a href="rudern.html">Rudern &amp; Training</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a class="btn btn--accent" href="mitglied-werden.html">Mitglied werden</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="inhalt">
-    <section class="hero page-hero"><div class="container"><h1>Datenschutzerklärung</h1></div></section>
+    <!-- ===== Seitenkopf ===== -->
+    <section class="hero hero--page">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
+          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Datenschutz</li></ol>
+        </nav>
+        <h1>Datenschutzerklärung</h1>
+        <p class="lead">Informationen zur Verarbeitung personenbezogener Daten.</p>
+      </div>
+      <svg class="hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 48c120-20 240-30 360-14s240 40 360 34 240-40 360-46 240 18 360 26v32H0z"/></svg>
+    </section>
 
-    <section class="section"><div class="container legal">
-      <p class="legal-warning"><strong>Hinweis:</strong> Platzhalterseite. Dieser Text muss vor Veröffentlichung rechtlich geprüft bzw. mit einem Generator erstellt werden.</p>
-      <h2>1. Verantwortlicher</h2><p><span class="platzhalter">[PLATZHALTER: Name und Kontaktdaten des Vereins]</span></p>
-      <h2>2. Hosting &amp; Server-Logfiles</h2><p><span class="platzhalter">[PLATZHALTER: Hosting-Anbieter und Speicherdauer]</span></p>
-      <h2>3. Kontaktformular / E-Mail</h2><p><span class="platzhalter">[PLATZHALTER: Verarbeitung der Anfragen]</span></p>
-      <h2>4. Schriftarten, Karten, Social Media</h2><p><span class="platzhalter">[PLATZHALTER: Nur ausfüllen, falls eingebunden – Schriften sind aktuell lokal / System]</span></p>
-      <h2>5. Ihre Rechte</h2><p><span class="platzhalter">[PLATZHALTER: Betroffenenrechte, Beschwerderecht Aufsichtsbehörde]</span></p>
-    </div></section>
+    <section class="section">
+      <div class="container container--narrow prose">
+        <div class="notice" role="note">
+          <p><strong>Wichtiger Hinweis:</strong> Dies ist eine Platzhalterseite. Der Text muss vor Veröffentlichung der Webseite rechtlich geprüft bzw. mit einem seriösen Generator (z. B. eRecht24, Datenschutz-Generator.de) oder durch eine fachkundige Person erstellt werden.</p>
+        </div>
+        <h2>1. Verantwortliche Stelle</h2>
+        <p><span class="todo">[PLATZHALTER: Name, Anschrift und Kontaktdaten des Vereins]</span></p>
+        <h2>2. Hosting</h2>
+        <p><span class="todo">[PLATZHALTER: Hosting-Anbieter (z. B. Netlify), Server-Logfiles, Speicherdauer, Rechtsgrundlage, ggf. Drittlandübermittlung]</span></p>
+        <h2>3. Kontaktformular und E-Mail</h2>
+        <p><span class="todo">[PLATZHALTER: Art der Daten, Zweck, Rechtsgrundlage, Speicherdauer, ggf. eingesetzter Formulardienst]</span></p>
+        <h2>4. Fotos von Mitgliedern</h2>
+        <p><span class="todo">[PLATZHALTER: Umgang mit Fotos auf der Webseite, Einwilligungen, Widerruf]</span></p>
+        <h2>5. Externe Inhalte</h2>
+        <p><span class="todo">[PLATZHALTER: Nur falls eingebunden: Karten, Videos, Social Media. Schriften werden lokal geladen – keine Übertragung an Google.]</span></p>
+        <h2>6. Ihre Rechte</h2>
+        <p><span class="todo">[PLATZHALTER: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit, Beschwerderecht bei der Aufsichtsbehörde]</span></p>
+      </div>
+    </section>
   </main>
 
-  <!-- ===== Fußbereich ===== -->
+  <!-- ================= FUSSBEREICH ================= -->
   <footer class="site-footer">
     <div class="container">
-      <div class="grid grid--3">
+      <div class="footer-grid">
         <div>
-          <h2>Ruderclub Eckernförde</h2>
-          <p><span class="platzhalter">[PLATZHALTER: Straße und Hausnummer]</span><br><span class="platzhalter">[PLATZHALTER: PLZ]</span> Eckernförde<br><span class="platzhalter">[PLATZHALTER: Bootshaus-Adresse prüfen]</span></p>
+          <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
+            <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="23" fill="#19a7c4"/>
+          <path d="M5 31c3.2-3 6.3-3 9.5 0s6.3 3 9.5 0 6.3-3 9.5 0 6.3 3 9.5 0V40a20 20 0 0 1-38 0z" fill="#0a2540" opacity=".85"/>
+          <path d="M13 11 33 31" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31.5 27.5l5.5 5.5-2.5 2.5-5.5-5.5z" fill="#ffb020"/>
+        </svg>
+            <span class="brand__text">Ruderclub Eckernförde<small>Rudern an der Ostsee</small></span>
+          </a>
+          <p><span class="todo">[MUSTERTEXT]</span> Gemeinsam auf dem Wasser – für Einsteiger, Fitnessruderer und Wettkampfsportler in Eckernförde.</p>
         </div>
         <div>
-          <h2>Kontakt</h2>
-          <p>Telefon: <span class="platzhalter">[PLATZHALTER: Telefonnummer]</span><br>E-Mail: <span class="platzhalter">[PLATZHALTER: E-Mail-Adresse]</span></p>
-        </div>
-        <div>
-          <h2>Navigation</h2>
+          <p class="footer-title">Verein</p>
           <ul>
-            <li><a href="verein.html">Der Verein</a></li>
-            <li><a href="mitmachen.html">Mitglied werden</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="verein.html">Über uns</a></li>
+            <li><a href="rudern.html">Rudern &amp; Training</a></li>
+            <li><a href="aktuelles.html">Aktuelles</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
           </ul>
         </div>
+        <div>
+          <p class="footer-title">Mitmachen</p>
+          <ul>
+            <li><a href="mitglied-werden.html">Mitglied werden</a></li>
+            <li><a href="kontakt.html">Probetraining anfragen</a></li>
+            <li><a href="kontakt.html#anfahrt">Anfahrt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Kontakt</p>
+          <address style="font-style:normal">
+            <span class="todo">[PLATZHALTER: Straße Hausnr.]</span><br>
+            <span class="todo">[PLATZHALTER: PLZ]</span> Eckernförde<br>
+            <span class="todo">[PLATZHALTER: E-Mail-Adresse]</span>
+          </address>
+        </div>
       </div>
-      <p class="footer-bottom">© <span id="jahr">2026</span> Ruderclub Eckernförde · <span class="platzhalter">[PLATZHALTER: Social-Media-Links, falls gewünscht]</span></p>
+      <div class="footer-bottom">
+        <p class="mt-0">© <span data-year>2026</span> Ruderclub Eckernförde <span class="todo">[PLATZHALTER: Rechtsform, z. B. e. V.]</span></p>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
-  <script src="js/news-data.js"></script>
+  <!-- Inhalte (vom Verein gepflegt) und Skripte -->
+  <script src="inhalte/aktuelles.js"></script>
+  <script src="inhalte/galerie.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
