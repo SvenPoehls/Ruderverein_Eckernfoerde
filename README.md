@@ -33,6 +33,9 @@ assets/fonts/           Schriftdateien (lokal, siehe unten)
 Wird die Seite über GitHub + Netlify veröffentlicht, lassen sich beide Dateien und die Fotos direkt im Browser auf github.com bearbeiten bzw. hochladen – nach dem Speichern ist die Seite in ca. 1 Minute aktualisiert.
 *Ausbaustufe für später:* ein Redaktionssystem wie Decap CMS oder Pages CMS, damit Beiträge über ein Formular mit Bild-Upload angelegt werden.
 
+## Hero-Bild austauschen
+Das Startbild liegt in `assets/img/hero-gig.webp` (groß) und `assets/img/hero-gig-800.webp` (Handy). Neues Foto unter gleichem Namen ablegen – oder die Pfade in `css/style.css` (Abschnitt 6, `--hero-img`) ändern.
+
 ## Schriften (DSGVO)
 Schriften werden bewusst nicht von Google geladen. Zum Aktivieren `plus-jakarta-sans-variable.woff2` und `inter-variable.woff2` (z. B. via google-webfonts-helper) in `assets/fonts/` legen. Bis dahin wird eine System-Schrift genutzt.
 
