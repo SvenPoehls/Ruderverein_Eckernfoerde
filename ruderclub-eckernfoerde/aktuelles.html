@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aktuelles | Ruderclub Eckernförde</title>
+  <meta name="description" content="Neuigkeiten, Berichte und Termine vom Ruderclub Eckernförde.">
+  <!-- Open Graph (für Vorschau in WhatsApp, Facebook usw.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Ruderclub Eckernförde">
+  <meta property="og:title" content="Aktuelles | Ruderclub Eckernförde">
+  <meta property="og:description" content="Neuigkeiten, Berichte und Termine vom Ruderclub Eckernförde.">
+  <!-- [PLATZHALTER: og:image – Vorschaubild 1200x630 px, z. B. assets/img/og-image.jpg] -->
+  <!-- [PLATZHALTER: og:url und canonical – endgültige Domain] -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <!-- ===== Kopfbereich & Navigation ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Ruderclub Eckernförde – zur Startseite">
+        <svg viewBox="0 0 48 48" role="img" aria-label="Logo-Platzhalter" focusable="false"><circle cx="24" cy="24" r="23" fill="#2bb3d1"/><path d="M6 30c4-4 8-4 12 0s8 4 12 0 8-4 12 0v10H6z" fill="#fff" opacity=".9"/><path d="M14 10l20 20" stroke="#0b3a63" stroke-width="3" stroke-linecap="round"/><ellipse cx="35" cy="31" rx="3" ry="6" transform="rotate(-45 35 31)" fill="#0b3a63"/></svg>
+        <span>Ruderclub<br>Eckernförde<small>[PLATZHALTER: Logo / Gründungsjahr]</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
+      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="verein.html">Verein</a></li>
+          <li><a href="rudern.html">Rudern & Angebote</a></li>
+          <li><a href="aktuelles.html" aria-current="page">Aktuelles</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a class="nav-cta" href="mitmachen.html">Mitglied werden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <section class="hero page-hero"><div class="container"><h1>Aktuelles</h1><p>Neuigkeiten und Berichte aus dem Vereinsleben.</p></div></section>
+
+    <section class="section" aria-labelledby="h-alle">
+      <div class="container">
+        <h2 id="h-alle" class="section__head">Neuigkeiten &amp; Berichte</h2>
+        <div class="grid grid--3" data-news>
+          <noscript><p>Bitte JavaScript aktivieren, um die Neuigkeiten zu sehen.</p></noscript>
+        </div>
+        <p class="form-note" style="margin-top:2rem">Hinweis für den Verein: Beiträge werden in der Datei <code>js/news-data.js</code> gepflegt (siehe README).</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Fußbereich ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid grid--3">
+        <div>
+          <h2>Ruderclub Eckernförde</h2>
+          <p><span class="platzhalter">[PLATZHALTER: Straße und Hausnummer]</span><br><span class="platzhalter">[PLATZHALTER: PLZ]</span> Eckernförde<br><span class="platzhalter">[PLATZHALTER: Bootshaus-Adresse prüfen]</span></p>
+        </div>
+        <div>
+          <h2>Kontakt</h2>
+          <p>Telefon: <span class="platzhalter">[PLATZHALTER: Telefonnummer]</span><br>E-Mail: <span class="platzhalter">[PLATZHALTER: E-Mail-Adresse]</span></p>
+        </div>
+        <div>
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="verein.html">Der Verein</a></li>
+            <li><a href="mitmachen.html">Mitglied werden</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© <span id="jahr">2026</span> Ruderclub Eckernförde · <span class="platzhalter">[PLATZHALTER: Social-Media-Links, falls gewünscht]</span></p>
+    </div>
+  </footer>
+
+  <script src="js/news-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
