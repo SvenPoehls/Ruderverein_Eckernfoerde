@@ -25,6 +25,8 @@
   <meta name="theme-color" content="#0a1a30">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Markiert, dass JavaScript aktiv ist (für Einblend-Animationen) -->
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -75,32 +77,41 @@
 
     <section class="section" aria-label="Angebote">
       <div class="container">
-        <article class="split" id="einsteiger" style="margin-bottom:4rem">
+        <article class="split offer-row" id="einsteiger">
           <div>
             <span class="tag">Neu dabei</span>
             <h2 class="mt-2">Rudern lernen – Einsteigerkurse</h2>
             <p><span class="todo">[MUSTERTEXT]</span> Du hast noch nie in einem Ruderboot gesessen? Kein Problem. In unseren Kursen lernst du in kleinen Gruppen die Grundlagen: Technik, Bootshandling und Sicherheit auf dem Wasser.</p>
             <ul class="checklist"><li>Kurstermine: <span class="todo">[PLATZHALTER: Zeitraum / Termine]</span></li><li>Voraussetzung: <span class="todo">[PLATZHALTER: z. B. Schwimmfähigkeit, Mindestalter]</span></li><li>Kosten: <span class="todo">[PLATZHALTER: Kursgebühr]</span></li></ul>
           </div>
-          <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Einsteigerkurs">[PLATZHALTER: Foto – Einsteigerkurs]</div>
+          <!-- Bild scrollt langsamer als der Text (Parallax, siehe js/main.js) -->
+          <div class="parallax" data-parallax="0.18">
+            <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Einsteigerkurs">[PLATZHALTER: Foto – Einsteigerkurs]</div>
+          </div>
         </article>
-        <article class="split" id="jugend" style="margin-bottom:4rem">
+        <article class="split offer-row" id="jugend">
           <div>
             <span class="tag">Kinder &amp; Jugend</span>
             <h2 class="mt-2">Jugendrudern</h2>
             <p><span class="todo">[MUSTERTEXT]</span> Unsere Jugendabteilung bietet Training in altersgerechten Gruppen, gemeinsame Wanderfahrten und die Möglichkeit, an Regatten teilzunehmen.</p>
             <ul class="checklist"><li>Alter: <span class="todo">[PLATZHALTER: Altersgruppen]</span></li><li>Training: <span class="todo">[PLATZHALTER: Tage und Uhrzeiten]</span></li><li>Ansprechperson: <span class="todo">[PLATZHALTER: Name Jugendwart/-in]</span></li></ul>
           </div>
-          <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Jugendgruppe beim Training">[PLATZHALTER: Foto – Jugendgruppe beim Training]</div>
+          <!-- Bild scrollt langsamer als der Text (Parallax, siehe js/main.js) -->
+          <div class="parallax" data-parallax="0.18">
+            <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Jugendgruppe beim Training">[PLATZHALTER: Foto – Jugendgruppe beim Training]</div>
+          </div>
         </article>
-        <article class="split" id="breitensport" style="margin-bottom:4rem">
+        <article class="split offer-row" id="breitensport">
           <div>
             <span class="tag">Erwachsene</span>
             <h2 class="mt-2">Breitensport, Wanderrudern &amp; Wettkampf</h2>
             <p><span class="todo">[MUSTERTEXT]</span> Ob entspannte Ausfahrt nach Feierabend, mehrtägige Wanderfahrt oder ambitioniertes Regattatraining – bei uns findest du deinen Weg.</p>
             <ul class="checklist"><li>Breitensport: <span class="todo">[PLATZHALTER: Termine]</span></li><li>Wettkampfgruppe: <span class="todo">[PLATZHALTER: Termine / Voraussetzungen]</span></li><li>Wintertraining: <span class="todo">[PLATZHALTER: z. B. Ergometer, Halle]</span></li></ul>
           </div>
-          <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Erwachsene im Mannschaftsboot">[PLATZHALTER: Foto – Erwachsene im Mannschaftsboot]</div>
+          <!-- Bild scrollt langsamer als der Text (Parallax, siehe js/main.js) -->
+          <div class="parallax" data-parallax="0.18">
+            <div class="ph ph--wide" role="img" aria-label="Bildplatzhalter: Foto – Erwachsene im Mannschaftsboot">[PLATZHALTER: Foto – Erwachsene im Mannschaftsboot]</div>
+          </div>
         </article>
       </div>
     </section>
