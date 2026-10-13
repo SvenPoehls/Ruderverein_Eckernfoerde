@@ -1,8 +1,7 @@
+# Statische Seite ohne Build – das Hauptverzeichnis wird direkt ausgeliefert.
 [build]
-  command = "npm run build"
-  publish = "_site"
+  publish = "."
 
-# Sicherheits-Header für alle Seiten. Siehe README für Hintergrund.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -10,5 +9,3 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), camera=(), microphone=()"
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; base-uri 'self'; form-action mailto: 'self'; frame-ancestors 'none'"
