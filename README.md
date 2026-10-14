@@ -1,55 +1,42 @@
 # Ruderclub Eckernförde – Webseite
 
-Öffentliche Webseite (reines HTML/CSS/JS) plus kleiner **Admin-Bereich**, in dem Vereinsmitglieder Neuigkeiten und Galeriebilder pflegen und weitere Admins anlegen können.
+Statische Vereinswebsite aus reinem HTML, CSS und etwas JavaScript – kein Build, keine Installation, kein Server.
+Veröffentlicht wird sie über **GitHub Pages** aus dem Ordner `docs/`.
 
 ## Aufbau
 ```
-site/                     öffentliche Webseite (wird so ausgeliefert)
+docs/                     die Webseite (wird von GitHub Pages ausgeliefert)
   index.html …            Seiten
   css/style.css           Design – Farben & Schriften oben in :root
-  js/main.js              Menü, Animationen, lädt Neuigkeiten & Galerie
-  inhalte/*.js            Beispielinhalte (Rückfall, solange im Admin-Bereich nichts gespeichert ist)
-  admin/                  Admin-Bereich (Login, Neuigkeiten, Galerie, Admins, Passwort)
-  assets/                 Bilder, Schriften
-netlify/functions/api.mjs API unter /api/… (Login, Inhalte, Bild-Upload)
-netlify/lib/              Anmeldung & Datenspeicher (Netlify Blobs)
-tools/dev-server.mjs      lokaler Testserver
-netlify.toml, package.json
+  js/main.js              Menü, Animationen, Neuigkeiten & Galerie
+  inhalte/aktuelles.js    ← Neuigkeiten pflegen
+  inhalte/galerie.js      ← Galerie pflegen
+  assets/img/             Bilder (news/, galerie/, Startbild)
+  assets/fonts/           Schriften (lokal, mit Lizenzen)
+DESIGN.md                 Gestaltungsregeln
 ```
 
-## Lokal testen
-```
-npm install
-npm start
-```
-Webseite: http://localhost:8888 · Admin-Bereich: http://localhost:8888/admin/ (oder Link „Login“ im Footer).
-Lokale Testdaten liegen in `.data/` (nicht im Git; zum Zurücksetzen einfach löschen).
+## Veröffentlichen mit GitHub Pages
+1. Im Repository auf **Settings → Pages** gehen.
+2. Bei *Source* „Deploy from a branch“ wählen, Branch **`main`**, Ordner **`/docs`** – speichern.
+3. Nach ca. 1 Minute ist die Seite unter `https://svenpoehls.github.io/Ruderverein_Eckernfoerde/` erreichbar.
+   Eine eigene Domain lässt sich später unter *Custom domain* eintragen.
 
-Ohne Server (Datei direkt im Browser öffnen) funktioniert die Webseite weiterhin, zeigt dann aber die Beispielinhalte und der Login ist nicht verfügbar.
+## Inhalte pflegen (für den Verein)
+Alles geht direkt im Browser auf github.com – nach dem Speichern („Commit changes“) ist die Seite nach ca. 1 Minute aktualisiert.
 
-## Admin-Bereich
-- **Erster Zugang:** Benutzername `test`, Passwort `test`. Er wird automatisch angelegt, solange es keinen anderen Admin gibt.
-- **⚠️ Vor dem Livegang:** Unter „Admins“ ein eigenes Konto anlegen, damit anmelden und den Testzugang `test` löschen. Solange er existiert, zeigt der Admin-Bereich eine Warnung.
-- Neuigkeiten und Galeriebilder anlegen, bearbeiten, löschen – inkl. Bild-Upload (wird automatisch verkleinert). Änderungen sind sofort auf der Webseite sichtbar.
-- Weitere Admins anlegen/löschen; jeder kann sein Passwort unter „Mein Konto“ ändern.
-- Sicherheit: Passwörter nur als scrypt-Hash gespeichert, Sitzungs-Cookie (HttpOnly, SameSite=Strict, 8 h), Sperre nach 5 Fehlversuchen für 15 Minuten.
+- **Neuer Beitrag:** `docs/inhalte/aktuelles.js` öffnen → Stift-Symbol → einen Block `{ … },` kopieren, oben einfügen, Text und Datum ändern. Die Anleitung steht oben in der Datei.
+- **Foto hochladen:** in `docs/assets/img/news/` bzw. `docs/assets/img/galerie/` → *Add file → Upload files*. Den Pfad dann im Beitrag bzw. in `docs/inhalte/galerie.js` eintragen.
+- **Weitere Personen dürfen pflegen:** unter *Settings → Collaborators* einladen (benötigt ein kostenloses GitHub-Konto).
 
-## Veröffentlichen (Netlify)
-1. Repository bei Netlify verbinden – `netlify.toml` erledigt den Rest (veröffentlicht `site/`, richtet die API ein).
-2. Daten werden in **Netlify Blobs** gespeichert (Region Frankfurt, `eu-central-1`; änderbar über die Umgebungsvariable `BLOBS_REGION` – nur vor dem ersten Speichern).
-3. Empfohlen: Umgebungsvariable `SESSION_SECRET` (langer Zufallswert) setzen. Ohne sie wird automatisch ein Schlüssel erzeugt und gespeichert.
+## Lokal ansehen
+`docs/index.html` im Browser öffnen – oder im Ordner `docs` `python3 -m http.server` starten und http://localhost:8000 aufrufen.
 
-## Hero-Bild austauschen
-Das Startbild liegt in `site/assets/img/hero-gig.webp` (groß) und `hero-gig-800.webp` (Handy). Neues Foto unter gleichem Namen ablegen – oder die Pfade in `site/css/style.css` (Abschnitt 6, `--hero-img`) ändern.
-
-## Gestaltung
-Die Gestaltungsregeln stehen in `DESIGN.md` (Farben, Schriften, Layout-Bausteine, Bewegung). Bitte bei Änderungen daran halten – oder die Datei bewusst anpassen.
-
-## Schriften (DSGVO)
-Big Shoulders Display und Atkinson Hyperlegible Next liegen als woff2 in `site/assets/fonts/` (SIL Open Font License, Lizenztexte daneben) und werden vom eigenen Server geladen – keine Verbindung zu Google.
+## Gestaltung & Schriften
+Die Gestaltungsregeln stehen in `DESIGN.md`. Schriften (Big Shoulders Display, Atkinson Hyperlegible Next) liegen als woff2 in `docs/assets/fonts/` (SIL Open Font License) – keine Verbindung zu Google.
 
 ## Offene Punkte
 - Alle Stellen mit `[PLATZHALTER: …]` und `[MUSTERTEXT]` ersetzen (auf der Seite gelb markiert).
-- Kontaktformular: Versandweg festlegen (z. B. Netlify Forms).
-- Impressum und Datenschutz rechtlich prüfen bzw. generieren lassen (inkl. Hinweis auf Netlify/Netlify Blobs).
+- Kontaktformular: Versandweg festlegen (GitHub Pages kann keine Formulare verschicken – z. B. mailto oder ein Formulardienst).
+- Impressum und Datenschutz rechtlich prüfen bzw. generieren lassen (inkl. Hinweis auf GitHub Pages).
 - Domain in Canonical/Open-Graph-Tags eintragen.

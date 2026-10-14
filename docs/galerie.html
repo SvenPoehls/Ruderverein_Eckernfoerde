@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Seite nicht gefunden | Ruderclub Eckernförde</title>
-  <meta name="description" content="Die angeforderte Seite wurde nicht gefunden.">
-  <meta name="robots" content="noindex, follow">
+  <title>Galerie | Ruderclub Eckernförde</title>
+  <meta name="description" content="Fotos vom Ruderclub Eckernförde: Training, Regatten, Jugend und Vereinsleben an der Eckernförder Bucht.">
+  <meta name="robots" content="index, follow">
   <!-- [PLATZHALTER: Canonical-URL nach Festlegung der Domain anpassen] -->
-  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/404.html">
+  <link rel="canonical" href="https://[PLATZHALTER-DOMAIN]/galerie.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Ruderclub Eckernförde">
-  <meta property="og:title" content="Seite nicht gefunden | Ruderclub Eckernförde">
-  <meta property="og:description" content="Die angeforderte Seite wurde nicht gefunden.">
-  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/404.html">
+  <meta property="og:title" content="Galerie | Ruderclub Eckernförde">
+  <meta property="og:description" content="Fotos vom Ruderclub Eckernförde: Training, Regatten, Jugend und Vereinsleben an der Eckernförder Bucht.">
+  <meta property="og:url" content="https://[PLATZHALTER-DOMAIN]/galerie.html">
   <meta property="og:image" content="https://[PLATZHALTER-DOMAIN]/assets/img/og-bild.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#07121f">
@@ -47,7 +47,7 @@
             <li><a href="verein.html">Verein</a></li>
             <li><a href="rudern.html">Rudern &amp; Training</a></li>
             <li><a href="aktuelles.html">Aktuelles</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="galerie.html" aria-current="page">Galerie</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a class="btn btn--gelb" href="mitglied-werden.html">Mitglied werden</a></li>
         </ul>
@@ -59,18 +59,19 @@
     <section class="hero hero--page">
       <div class="container">
         <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
-          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Seite nicht gefunden</li></ol>
+          <ol><li><a href="index.html">Start</a></li><li aria-current="page">Galerie</li></ol>
         </nav>
-        <h1>Vom Kurs abgekommen</h1>
-        <p class="lead">Diese Seite gibt es leider nicht (mehr).</p>
+        <h1>Galerie</h1>
+        <p class="lead"><span class="todo">[MUSTERTEXT]</span> Training, Regatten, Wanderfahrten – und der eine perfekte Morgen auf der Bucht.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="gallery-title">
       <div class="container">
-        <div class="btn-row">
-          <a class="btn btn--gelb" href="index.html">Zurück zum Steg</a>
-          <a class="btn btn--ghost" href="kontakt.html">Kontakt</a>
+        <h2 id="gallery-title" class="visually-hidden">Fotos</h2>
+        <div class="filters" role="group" aria-label="Fotos nach Album filtern" data-filter-target="gallery"></div>
+        <div class="gallery" id="gallery" data-gallery>
+          <noscript><p>Die Galerie wird mit JavaScript geladen. Bitte aktivieren Sie JavaScript.</p></noscript>
         </div>
       </div>
     </section>
@@ -111,7 +112,6 @@
         <ul>
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
-          <li><a class="footer-login" href="admin/" rel="nofollow">Login</a></li>
         </ul>
       </div>
     </div>

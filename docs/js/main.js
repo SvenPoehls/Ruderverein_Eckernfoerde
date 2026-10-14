@@ -2,8 +2,8 @@
    Ruderclub Eckernförde – main.js
    Bewusst minimal und ohne Bibliotheken:
      1. Mobiles Menü
-     2. Neuigkeiten anzeigen   (Daten: /api/news, Rückfall inhalte/aktuelles.js)
-     3. Galerie anzeigen       (Daten: /api/gallery, Rückfall inhalte/galerie.js)
+     2. Neuigkeiten anzeigen   (Daten: inhalte/aktuelles.js)
+     3. Galerie anzeigen       (Daten: inhalte/galerie.js)
      4. Filter-Buttons
      5. Kontaktformular (Platzhalter, noch kein Versand)
      6. Jahreszahl im Footer
@@ -120,21 +120,13 @@
       "</li>";
   }
 
-  /* Datenquelle: Online kommen Beiträge & Bilder aus dem Admin-Bereich
-     (/api/news, /api/gallery). Solange dort noch nichts gespeichert wurde
-     – oder die Seite ohne Server geöffnet wird – gelten die Dateien in
-     inhalte/ als Rückfall. */
-  function loadContent(resource, fallback) {
-    if (!/^https?:$/.test(location.protocol)) return Promise.resolve(fallback);
-    return fetch("/api/" + resource, { headers: { Accept: "application/json" } })
-      .then(function (res) { return res.ok ? res.json() : null; })
-      .then(function (data) { return data && Array.isArray(data.items) ? data.items : fallback; })
-      .catch(function () { return fallback; });
-  }
+  /* Datenquelle: Die Inhalte stehen in inhalte/aktuelles.js und inhalte/galerie.js
+     und werden direkt im Repository (z. B. im Browser auf github.com) gepflegt. */
+  function loadContent(data) { return Promise.resolve(data || []); }
 
   var newsTargets = document.querySelectorAll("[data-news]");
   if (newsTargets.length) {
-    loadContent("news", window.AKTUELLES || []).then(function (all) {
+    loadContent(window.AKTUELLES).then(function (all) {
       newsTargets.forEach(function (el) {
         var limit = parseInt(el.getAttribute("data-news-limit"), 10) || 0;
         var layout = el.getAttribute("data-news-layout") || "log";
@@ -160,7 +152,7 @@
   /* ---------- 3. Galerie ---------- */
   var galleryTargets = document.querySelectorAll("[data-gallery]");
   if (galleryTargets.length) {
-    loadContent("gallery", window.GALERIE || []).then(function (items) {
+    loadContent(window.GALERIE).then(function (items) {
       galleryTargets.forEach(function (el) {
         el.innerHTML = items.length ? items.map(function (bild) {
           var img = bild.datei
@@ -205,7 +197,7 @@
 
 
   /* ---------- 5. Kontaktformular (Platzhalter) ----------
-     TODO: Versandweg festlegen (z. B. Netlify Forms, Formspree oder mailto).
+     TODO: Versandweg festlegen (z. B. Formspree oder mailto – GitHub Pages hat keinen eigenen Formularversand).
      Bis dahin wird das Absenden abgefangen und ein Hinweis angezeigt. */
   document.querySelectorAll("form[data-form-placeholder]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
