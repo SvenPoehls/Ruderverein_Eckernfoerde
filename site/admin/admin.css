@@ -75,3 +75,8 @@ code { background: rgba(255,255,255,.08); padding: 0.1em 0.35em; border-radius: 
   background: var(--c-accent); color: var(--c-on-accent); font-weight: 700;
   padding: 0.8rem 1.3rem; border-radius: var(--radius-s); box-shadow: var(--shadow-l);
 }
+
+/* Anpassung an Design v3: ruhigere Überschriften im Arbeitsbereich */
+.admin-panel__head h2, .admin-editor h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
+.admin-title { font-size: clamp(2rem, 4vw, 2.8rem); }
+.admin-tabs button { font-family: var(--font-body); }

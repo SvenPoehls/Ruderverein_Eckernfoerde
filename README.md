@@ -42,8 +42,11 @@ Ohne Server (Datei direkt im Browser öffnen) funktioniert die Webseite weiterhi
 ## Hero-Bild austauschen
 Das Startbild liegt in `site/assets/img/hero-gig.webp` (groß) und `hero-gig-800.webp` (Handy). Neues Foto unter gleichem Namen ablegen – oder die Pfade in `site/css/style.css` (Abschnitt 6, `--hero-img`) ändern.
 
+## Gestaltung
+Die Gestaltungsregeln stehen in `DESIGN.md` (Farben, Schriften, Layout-Bausteine, Bewegung). Bitte bei Änderungen daran halten – oder die Datei bewusst anpassen.
+
 ## Schriften (DSGVO)
-Schriften werden bewusst nicht von Google geladen. Zum Aktivieren `plus-jakarta-sans-variable.woff2` und `inter-variable.woff2` (z. B. via google-webfonts-helper) in `site/assets/fonts/` legen. Bis dahin wird eine System-Schrift genutzt.
+Big Shoulders Display und Atkinson Hyperlegible Next liegen als woff2 in `site/assets/fonts/` (SIL Open Font License, Lizenztexte daneben) und werden vom eigenen Server geladen – keine Verbindung zu Google.
 
 ## Offene Punkte
 - Alle Stellen mit `[PLATZHALTER: …]` und `[MUSTERTEXT]` ersetzen (auf der Seite gelb markiert).

@@ -60,23 +60,64 @@
   }
 
 
+  /* ---------- Einblend-Beobachter (wird von 2., 3. und 7. genutzt) ---------- */
+  // Hinweis: kein IntersectionObserver, da Chrome den clip-path des Elements
+  // mitberücksichtigt – ein komplett „weggewischtes“ Bild gälte nie als sichtbar.
+  var pendingReveals = [];
+  function checkReveals() {
+    if (!pendingReveals.length) return;
+    var limit = window.innerHeight * 0.88;
+    pendingReveals = pendingReveals.filter(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < limit && r.bottom > 0) { el.classList.add("is-visible"); return false; }
+      return true;
+    });
+  }
+  function watchReveals(root) {
+    var els = Array.prototype.slice.call(root.querySelectorAll("[data-reveal]:not(.is-visible)"));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      els.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+    pendingReveals = pendingReveals.concat(els);
+    window.requestAnimationFrame(checkReveals);
+  }
+
+
   /* ---------- 2. Neuigkeiten ---------- */
-  function newsCard(item, headingLevel) {
-    var h = "h" + headingLevel;
-    var media = item.bild
-      ? '<img src="' + esc(item.bild) + '" alt="' + esc(item.bildAlt) + '" loading="lazy" width="800" height="500">'
+  var MONATE = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
+
+  function newsMedia(item) {
+    return item.bild
+      ? '<img src="' + esc(item.bild) + '" alt="' + esc(item.bildAlt) + '" loading="lazy" width="800" height="600">'
       : placeholderImg("[PLATZHALTER: Bild zum Beitrag]");
-    var more = item.text
-      ? '<details class="news-more"><summary>Weiterlesen</summary>' + paragraphs(item.text) + "</details>"
-      : "";
-    return '<article class="card" data-kategorie="' + esc(item.kategorie) + '">' +
-      '<div class="card__media">' + media + "</div>" +
-      '<div class="card__body">' +
-        '<p class="card__meta"><time datetime="' + esc(item.datum) + '">' + formatDate(item.datum) + "</time>" +
-          (item.kategorie ? '<span class="tag">' + esc(item.kategorie) + "</span>" : "") + "</p>" +
-        "<" + h + ">" + esc(item.titel) + "</" + h + ">" +
-        "<p>" + esc(item.teaser) + "</p>" + more +
-      "</div></article>";
+  }
+  function newsMore(item) {
+    return item.text ? '<details class="news-more"><summary>Weiterlesen</summary>' + paragraphs(item.text) + "</details>" : "";
+  }
+  function newsMeta(item) {
+    return '<p class="news-meta"><time datetime="' + esc(item.datum) + '">' + formatDate(item.datum) + "</time>" +
+      (item.kategorie ? '<span class="tag">' + esc(item.kategorie) + "</span>" : "") + "</p>";
+  }
+
+  // Großer Aufmacher (Startseite)
+  function newsFeature(item) {
+    return '<article class="feature-news" data-kategorie="' + esc(item.kategorie) + '">' +
+      '<div class="feature-news__media" data-reveal="wipe">' + newsMedia(item) + "</div>" +
+      "<div>" + newsMeta(item) + "<h3>" + esc(item.titel) + "</h3><p>" + esc(item.teaser) + "</p>" + newsMore(item) + "</div></article>";
+  }
+
+  // Logbuch-Eintrag: Datum groß links, Text, Bild rechts
+  function newsLog(item, withMedia) {
+    var d = new Date(item.datum + "T12:00:00");
+    var date = isNaN(d) ? esc(item.datum)
+      : "<b>" + d.getDate() + "</b><span>" + MONATE[d.getMonth()] + " " + d.getFullYear() + "</span>";
+    return '<li class="log__entry" data-kategorie="' + esc(item.kategorie) + '">' +
+      '<time class="log__date" datetime="' + esc(item.datum) + '">' + date + "</time>" +
+      '<div class="log__body">' + (item.kategorie ? '<span class="tag">' + esc(item.kategorie) + "</span>" : "") +
+        "<h3>" + esc(item.titel) + "</h3><p>" + esc(item.teaser) + "</p>" + newsMore(item) + "</div>" +
+      (withMedia ? '<div class="log__media" data-reveal="wipe">' + newsMedia(item) + "</div>" : "") +
+      "</li>";
   }
 
   /* Datenquelle: Online kommen Beiträge & Bilder aus dem Admin-Bereich
@@ -96,15 +137,21 @@
     loadContent("news", window.AKTUELLES || []).then(function (all) {
       newsTargets.forEach(function (el) {
         var limit = parseInt(el.getAttribute("data-news-limit"), 10) || 0;
-        var level = parseInt(el.getAttribute("data-heading-level"), 10) || 3;
+        var layout = el.getAttribute("data-news-layout") || "log";
         var items = all.slice().sort(function (a, b) {
           return String(b.datum).localeCompare(String(a.datum)); // neueste zuerst
         });
         if (limit) items = items.slice(0, limit);
-        el.innerHTML = items.length
-          ? items.map(function (i) { return newsCard(i, level); }).join("")
-          : "<p>Zurzeit gibt es keine Neuigkeiten.</p>";
-        buildFilters(el, items.map(function (i) { return i.kategorie; }), "article");
+        if (!items.length) {
+          el.innerHTML = "<p>Zurzeit gibt es keine Neuigkeiten.</p>";
+        } else if (layout === "feature") {
+          el.innerHTML = newsFeature(items[0]) +
+            (items.length > 1 ? '<ol class="log">' + items.slice(1).map(function (i) { return newsLog(i, false); }).join("") + "</ol>" : "");
+        } else {
+          el.innerHTML = '<ol class="log">' + items.map(function (i) { return newsLog(i, true); }).join("") + "</ol>";
+        }
+        watchReveals(el);
+        buildFilters(el, items.map(function (i) { return i.kategorie; }), "[data-kategorie]");
       });
     });
   }
@@ -120,11 +167,12 @@
             ? '<a href="' + esc(bild.datei) + '" target="_blank" rel="noopener"><img src="' + esc(bild.datei) +
               '" alt="' + esc(bild.alt) + '" loading="lazy" width="800" height="600"></a>'
             : placeholderImg("[PLATZHALTER: " + (bild.alt || "Foto") + "]");
-          return '<figure data-kategorie="' + esc(bild.album) + '">' + img +
+          return '<figure data-kategorie="' + esc(bild.album) + '" data-reveal="wipe">' + img +
             (bild.bildunterschrift ? "<figcaption>" + esc(bild.bildunterschrift) + "</figcaption>" : "") +
             "</figure>";
         }).join("") : "<p>Zurzeit sind keine Bilder vorhanden.</p>";
         buildFilters(el, items.map(function (b) { return b.album; }), "figure");
+        watchReveals(el);
       });
     });
   }
@@ -192,6 +240,7 @@
     var y = window.scrollY;
     var vh = window.innerHeight;
     if (header) header.classList.toggle("is-scrolled", y > 10);
+    checkReveals();
     if (reduceMotion) return;
 
     // Hero-Foto scrollt mit 35 % der Geschwindigkeit (solange sichtbar)
@@ -221,43 +270,8 @@
   window.addEventListener("resize", onScroll);
   updateMotion();
 
-  // 7.2 Einblenden beim Scrollen ------------------------------------------
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    var groups = [
-      ".section-head", ".feature", ".card", ".steps li", ".fact", ".person",
-      ".faq details", ".cta", ".table-wrap", ".gallery figure", ".contact-list li",
-      ".form", ".checklist li", ".offer-row > div:first-child", ".split > .ph", ".prose > *"
-    ];
-    var revealEls = [];
-    groups.forEach(function (sel) {
-      document.querySelectorAll("main " + sel).forEach(function (el) {
-        if (el.closest(".hero") || el.classList.contains("reveal")) return;
-        // Geschwister gestaffelt nacheinander einblenden
-        var siblings = Array.prototype.filter.call(el.parentElement.children, function (c) { return c.matches(sel); });
-        var index = Math.min(siblings.indexOf(el), 5);
-        el.style.setProperty("--reveal-delay", (index * 0.09).toFixed(2) + "s");
-        el.classList.add("reveal");
-        revealEls.push(el);
-      });
-    });
-    // Text der Angebotszeilen fährt von links herein (Bilder bewegen sich per Parallax)
-    document.querySelectorAll("main .offer-row > div:first-child").forEach(function (el) { el.classList.add("reveal--left"); });
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        el.classList.add("is-visible");
-        observer.unobserve(el);
-        // Nach der Animation Klassen entfernen, damit Hover-Effekte wieder greifen
-        setTimeout(function () {
-          el.classList.remove("reveal", "reveal--left", "reveal--right", "is-visible");
-          el.style.removeProperty("--reveal-delay");
-        }, 1400);
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
-    revealEls.forEach(function (el) { observer.observe(el); });
-  } else {
-    document.documentElement.classList.remove("js");
-  }
+  // 7.2 Gezielte Einblend-Effekte ----------------------------------------
+  // Nur Elemente mit data-reveal: "wipe" (Bilder), "rise" (große Überschriften)
+  // und die Bojenkette. Kein pauschales Einblenden aller Abschnitte.
+  watchReveals(document);
 })();
